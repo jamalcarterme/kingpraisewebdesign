@@ -44,6 +44,31 @@
     } catch (e) { grid.innerHTML = '<p class="text-slate-400 col-span-3 text-center">Portfolio coming soon.</p>'; }
   }
 
+  async function loadTeam() {
+    const grid = document.getElementById('team-grid');
+    if (!grid) return;
+    grid.innerHTML = skeletonCards(4, 280);
+    try {
+      const data = await api.get('/team', { auth: false });
+      const list = (data.team || data.data || []).filter(t => t.isActive !== false).sort((a, b) => (a.order || 0) - (b.order || 0)).slice(0, 4);
+      if (!list.length) { document.getElementById('team-section')?.classList.add('hidden'); return; }
+      grid.innerHTML = list.map(m => `
+        <div class="reveal glass rounded-2xl p-6 text-center card-hover">
+          <img src="${m.photo?.url || ''}" onerror="this.style.display='none'" class="w-24 h-24 rounded-full object-cover mx-auto bg-[var(--surface-2)]">
+          <h3 class="font-display font-semibold text-white mt-4">${m.name}</h3>
+          <p class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-wide mt-1">${m.role}</p>
+          <p class="text-slate-400 text-sm mt-3 clamp-3">${m.bio || ''}</p>
+          <div class="flex justify-center gap-3 mt-4 text-slate-500">
+            ${m.socials?.linkedin ? `<a href="${m.socials.linkedin}" target="_blank" class="hover:text-white transition">in</a>` : ''}
+            ${m.socials?.twitter ? `<a href="${m.socials.twitter}" target="_blank" class="hover:text-white transition">tw</a>` : ''}
+            ${m.socials?.github ? `<a href="${m.socials.github}" target="_blank" class="hover:text-white transition">gh</a>` : ''}
+            ${m.socials?.instagram ? `<a href="${m.socials.instagram}" target="_blank" class="hover:text-white transition">ig</a>` : ''}
+          </div>
+        </div>`).join('');
+      window.KPWD_UI.initReveal();
+    } catch (e) { document.getElementById('team-section')?.classList.add('hidden'); }
+  }
+
   async function loadTestimonials() {
     const track = document.getElementById('testimonials-track');
     if (!track) return;
@@ -97,6 +122,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     loadAnnouncements();
     loadProjects();
+    loadTeam();
     loadTestimonials();
     loadGoogleReviews();
   });
