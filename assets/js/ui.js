@@ -197,8 +197,9 @@
   });
 
   window.addEventListener('load', () => {
-    setTimeout(hidePageLoader, 350);
+    setTimeout(hidePageLoader, 250);
   });
-  // Fallback in case the load event is delayed by slow third-party assets
-  setTimeout(hidePageLoader, 4000);
+  // Guaranteed fallback in case the load event or ui.js itself is delayed/blocked —
+  // the CSS animation on .page-loader also self-dismisses independently after 3.2s.
+  setTimeout(hidePageLoader, 1800);
 })();

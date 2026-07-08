@@ -109,8 +109,12 @@ body{
 .page-loader{
   position:fixed; inset:0; z-index:99999; display:flex; align-items:center; justify-content:center;
   background:var(--bg); transition:opacity .4s ease, visibility .4s ease;
+  animation:loader-autohide .01s linear 3.2s forwards;
 }
 .page-loader.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+@keyframes loader-autohide{
+  to{ opacity:0; visibility:hidden; pointer-events:none; }
+}
 .loader-stage{
   display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
   width:6rem; height:8.5rem;
