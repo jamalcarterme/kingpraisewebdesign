@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('kpwd-theme')||((window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog &mdash; King Praise Web Design</title>
@@ -13,6 +14,14 @@
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
+<div id="page-loader" class="page-loader">
+  <div class="loader-stage">
+    <img src="assets/img/logo-icon.png" alt="Loading" class="loader-logo">
+    <div class="loader-shadow"></div>
+    <div class="loader-label">King Praise Web Design</div>
+  </div>
+</div>
+
 <div id="site-header"></div>
 <main class="pt-40 pb-24 max-w-7xl mx-auto px-5 lg:px-8">
   <div class="text-center max-w-2xl mx-auto reveal in">
