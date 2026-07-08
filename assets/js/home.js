@@ -119,11 +119,129 @@
     } catch (e) { document.getElementById('google-reviews-section')?.classList.add('hidden'); }
   }
 
+  /* Hero "live coding" typewriter animation */
+  function initHeroTyper() {
+    const el = document.getElementById('hero-code');
+    if (!el) return;
+
+    const cls = {
+      kw: 'text-[var(--brand-3)]',
+      id: 'text-white',
+      op: 'text-slate-400',
+      prop: 'text-[var(--brand-2)]',
+      str: 'text-emerald-300',
+      com: 'text-slate-500'
+    };
+
+    // Each snippet is an array of lines; each line is an array of {t, c} tokens
+    const snippets = [
+      [
+        [{ t: 'const ', c: 'kw' }, { t: 'project', c: 'id' }, { t: ' = {', c: 'op' }],
+        [{ t: '  client', c: 'prop' }, { t: ': ', c: 'op' }, { t: '"your-brand"', c: 'str' }, { t: ',', c: 'op' }],
+        [{ t: '  stack', c: 'prop' }, { t: ': [', c: 'op' }, { t: '"design"', c: 'str' }, { t: ', ', c: 'op' }, { t: '"code"', c: 'str' }, { t: ', ', c: 'op' }, { t: '"growth"', c: 'str' }, { t: ']', c: 'op' }, { t: ',', c: 'op' }],
+        [{ t: '  status', c: 'prop' }, { t: ': ', c: 'op' }, { t: '"shipped"', c: 'str' }],
+        [{ t: '};', c: 'op' }]
+      ],
+      [
+        [{ t: '// spin up a new build', c: 'com' }],
+        [{ t: 'async function ', c: 'kw' }, { t: 'deploy', c: 'id' }, { t: '(site) {', c: 'op' }],
+        [{ t: '  await ', c: 'kw' }, { t: 'build', c: 'id' }, { t: '(site);', c: 'op' }],
+        [{ t: '  await ', c: 'kw' }, { t: 'test', c: 'id' }, { t: '(site);', c: 'op' }],
+        [{ t: '  return ', c: 'kw' }, { t: '"live"', c: 'str' }, { t: ';', c: 'op' }],
+        [{ t: '}', c: 'op' }]
+      ],
+      [
+        [{ t: 'const ', c: 'kw' }, { t: 'results', c: 'id' }, { t: ' = {', c: 'op' }],
+        [{ t: '  speed', c: 'prop' }, { t: ': ', c: 'op' }, { t: '"fast"', c: 'str' }, { t: ',', c: 'op' }],
+        [{ t: '  design', c: 'prop' }, { t: ': ', c: 'op' }, { t: '"premium"', c: 'str' }, { t: ',', c: 'op' }],
+        [{ t: '  clients', c: 'prop' }, { t: ': ', c: 'op' }, { t: '"happy"', c: 'str' }],
+        [{ t: '};', c: 'op' }]
+      ]
+    ];
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function flatten(lines) {
+      const tokens = [];
+      lines.forEach((line, i) => {
+        if (i > 0) tokens.push({ brk: true });
+        line.forEach(t => tokens.push(t));
+      });
+      return tokens;
+    }
+
+    function totalLen(tokens) {
+      return tokens.reduce((n, t) => n + (t.brk ? 1 : t.t.length), 0);
+    }
+
+    function render(tokens, count) {
+      let out = '';
+      let remaining = count;
+      for (const t of tokens) {
+        if (remaining <= 0) break;
+        if (t.brk) { out += '\n'; remaining--; continue; }
+        const slice = t.t.slice(0, remaining);
+        out += `<span class="${cls[t.c] || ''}">${escapeHtml(slice)}</span>`;
+        remaining -= slice.length;
+      }
+      return out;
+    }
+
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      const tokens = flatten(snippets[0]);
+      el.innerHTML = render(tokens, totalLen(tokens)) + '<span class="caret">&nbsp;</span>';
+      return;
+    }
+
+    const TYPE_SPEED = 34;
+    const DELETE_SPEED = 16;
+    const PAUSE_AFTER_TYPE = 1700;
+    const PAUSE_BETWEEN = 650;
+
+    let snippetIndex = 0;
+    let charIndex = 0;
+    let mode = 'typing'; // 'typing' | 'pausing' | 'deleting' | 'thinking'
+    let modeStart = performance.now();
+
+    function step(now) {
+      const tokens = flatten(snippets[snippetIndex]);
+      const max = totalLen(tokens);
+
+      if (mode === 'typing') {
+        el.innerHTML = render(tokens, charIndex) + '<span class="caret">&nbsp;</span>';
+        if (charIndex >= max) { mode = 'pausing'; modeStart = now; }
+        else { charIndex++; }
+        setTimeout(() => requestAnimationFrame(step), TYPE_SPEED);
+      } else if (mode === 'pausing') {
+        if (now - modeStart >= PAUSE_AFTER_TYPE) mode = 'deleting';
+        requestAnimationFrame(step);
+      } else if (mode === 'deleting') {
+        el.innerHTML = render(tokens, charIndex) + '<span class="caret">&nbsp;</span>';
+        if (charIndex <= 0) { mode = 'thinking'; modeStart = now; }
+        else { charIndex--; }
+        setTimeout(() => requestAnimationFrame(step), DELETE_SPEED);
+      } else if (mode === 'thinking') {
+        el.innerHTML = '<span class="typing-dots"><span></span><span></span><span></span></span>';
+        if (now - modeStart >= PAUSE_BETWEEN) {
+          snippetIndex = (snippetIndex + 1) % snippets.length;
+          charIndex = 0;
+          mode = 'typing';
+        }
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     loadAnnouncements();
     loadProjects();
     loadTeam();
     loadTestimonials();
     loadGoogleReviews();
+    initHeroTyper();
   });
 })();
