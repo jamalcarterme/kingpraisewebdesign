@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard &mdash; King Praise Web Design</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Space Grotesk','sans-serif'],sans:['Inter','sans-serif']}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div class="flex min-h-screen">
+  <!-- SIDEBAR -->
+  <aside class="w-64 shrink-0 border-r border-white/10 hidden lg:flex flex-col p-5">
+    <div class="flex items-center gap-2 mb-8">
+      <span class="bracket-mark text-2xl"><span class="bkt">&lt;</span><span class="slash">K</span><span class="bkt">/&gt;</span></span>
+      <span class="font-display font-semibold text-white text-sm">Admin</span>
+    </div>
+    <nav class="flex flex-col gap-1 text-sm">
+      <button id="tab-overview" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Overview</button>
+      <button id="tab-projects" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Portfolio Projects</button>
+      <button id="tab-blog" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Blog Posts</button>
+      <button id="tab-team" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Team</button>
+      <button id="tab-testimonials" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Testimonials</button>
+      <button id="tab-announcements" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Announcements</button>
+      <button id="tab-bookings" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Call Bookings</button>
+      <button id="tab-contact" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Contact Messages</button>
+      <button id="tab-clients" class="text-left px-3 py-2.5 rounded-lg text-slate-300 hover:bg-white/5 transition">Client Projects</button>
+    </nav>
+    <div class="mt-auto pt-5 border-t border-white/10">
+      <a href="../index.html" class="block text-slate-400 hover:text-white text-sm mb-3 transition">&larr; Main Site</a>
+      <button id="logout-btn" class="btn-ghost w-full py-2 rounded-lg text-sm">Logout</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="flex-1 min-w-0">
+    <header class="border-b border-white/10 px-5 lg:px-8 py-4 flex items-center justify-between">
+      <h1 class="font-display text-lg font-semibold text-white">Dashboard</h1>
+      <span class="text-slate-400 text-sm">Signed in as <span id="admin-name" class="text-white font-medium"></span></span>
+    </header>
+
+    <main class="p-5 lg:p-8">
+      <!-- OVERVIEW -->
+      <section id="panel-overview">
+        <div id="overview-stats" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="panel-projects" class="hidden">
+        <div class="flex items-center justify-between mb-5"><h2 class="font-display text-xl font-semibold text-white">Portfolio Projects</h2><button id="add-project-btn" class="btn-primary px-4 py-2 rounded-lg text-sm">+ New Project</button></div>
+        <div class="glass rounded-2xl overflow-x-auto"><table class="data-table"><thead><tr><th>Image</th><th>Title</th><th>Category</th><th>Client</th><th>Country</th><th></th></tr></thead><tbody id="projects-tbody"></tbody></table></div>
+      </section>
+
+      <!-- BLOG -->
+      <section id="panel-blog" class="hidden">
+        <div class="flex items-center justify-between mb-5"><h2 class="font-display text-xl font-semibold text-white">Blog Posts</h2><button id="add-blog-btn" class="btn-primary px-4 py-2 rounded-lg text-sm">+ New Post</button></div>
+        <div class="glass rounded-2xl overflow-x-auto"><table class="data-table"><thead><tr><th>Cover</th><th>Title</th><th>Category</th><th>Status</th><th></th></tr></thead><tbody id="blog-tbody"></tbody></table></div>
+      </section>
+
+      <!-- TEAM -->
+      <section id="panel-team" class="hidden">
+        <div class="flex items-center justify-between mb-5"><h2 class="font-display text-xl font-semibold text-white">Team Members</h2><button id="add-team-btn" class="btn-primary px-4 py-2 rounded-lg text-sm">+ New Member</button></div>
+        <div class="glass rounded-2xl overflow-x-auto"><table class="data-table"><thead><tr><th>Photo</th><th>Name</th><th>Role</th><th>Status</th><th></th></tr></thead><tbody id="team-tbody"></tbody></table></div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section id="panel-testimonials" class="hidden">
+        <div class="flex items-center justify-between mb-5"><h2 class="font-display text-xl font-semibold text-white">Testimonials</h2><button id="add-testimonial-btn" class="btn-primary px-4 py-2 rounded-lg text-sm">+ New Testimonial</button></div>
+        <div class="glass rounded-2xl overflow-x-auto"><table class="data-table"><thead><tr><th>Name</th><th>Role</th><th>Rating</th><th>Source</th><th></th></tr></thead><tbody id="testimonials-tbody"></tbody></table></div>
+      </section>
+
+      <!-- ANNOUNCEMENTS -->
+      <section id="panel-announcements" class="hidden">
+        <div class="flex items-center justify-between mb-5"><h2 class="font-display text-xl font-semibold text-white">Announcements</h2><button id="add-announcement-btn" class="btn-primary px-4 py-2 rounded-lg text-sm">+ New Announcement</button></div>
+        <div class="glass rounded-2xl overflow-x-auto"><table class="data-table"><thead><tr><th>Title</th><th>Type</th><th>Audience</th><th>Status</th><th></th></tr></thead><tbody id="announcements-tbody"></tbody></table></div>
+      </section>
+
+      <!-- BOOKINGS -->
+      <section id="panel-bookings" class="hidden">
+        <h2 class="font-display text-xl font-semibold text-white mb-5">Call Bookings</h2>
+        <div class="glass rounded-2xl overflow-x-auto"><table class="data-table"><thead><tr><th>Client</th><th>Type</th><th>Date &amp; Time</th><th>Country</th><th>Status</th><th></th></tr></thead><tbody id="bookings-tbody"></tbody></table></div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="panel-contact" class="hidden">
+        <h2 class="font-display text-xl font-semibold text-white mb-5">Contact Messages</h2>
+        <div class="glass rounded-2xl overflow-x-auto"><table class="data-table"><thead><tr><th>From</th><th>Subject</th><th>Message</th><th>Date</th><th></th></tr></thead><tbody id="contact-tbody"></tbody></table></div>
+      </section>
+
+      <!-- CLIENT PROJECTS -->
+      <section id="panel-clients" class="hidden">
+        <div class="flex items-center justify-between mb-5"><h2 class="font-display text-xl font-semibold text-white">Client Projects</h2><button id="add-client-project-btn" class="btn-primary px-4 py-2 rounded-lg text-sm">+ Onboard Client Project</button></div>
+        <div class="glass rounded-2xl overflow-x-auto"><table class="data-table"><thead><tr><th>Project</th><th>Client</th><th>Status</th><th>Progress</th><th></th></tr></thead><tbody id="clients-tbody"></tbody></table></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- MODAL -->
+<div id="admin-modal" class="hidden fixed inset-0 modal-backdrop z-[100] flex items-center justify-center p-5">
+  <div class="glass rounded-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto p-7">
+    <div class="flex items-center justify-between mb-6">
+      <h3 id="modal-title" class="font-display text-xl font-semibold text-white"></h3>
+      <button id="modal-close" class="text-slate-400 hover:text-white text-2xl leading-none">&times;</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/admin-dashboard.js"></script>
+</body>
+</html>

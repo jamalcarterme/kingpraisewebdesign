@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing &mdash; King Praise Web Design</title>
+<meta name="description" content="Transparent, country-based pricing for websites, e-commerce and custom software from King Praise Web Design.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Space Grotesk','sans-serif'],sans:['Inter','sans-serif']}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<div id="site-header"></div>
+<main class="pt-40 pb-24 max-w-7xl mx-auto px-5 lg:px-8">
+  <div class="text-center max-w-2xl mx-auto reveal in">
+    <span class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-widest">Pricing</span>
+    <h1 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3">Simple, honest pricing</h1>
+    <p class="text-slate-400 mt-4">Pricing shown for <span id="region-label" class="text-white font-semibold">your region</span>. Every project is scoped individually &mdash; these are starting points.</p>
+    <div class="flex justify-center gap-3 mt-6">
+      <button data-region="NG" class="region-btn btn-ghost px-4 py-2 rounded-lg text-sm">Nigeria (NGN)</button>
+      <button data-region="INTL" class="region-btn btn-ghost px-4 py-2 rounded-lg text-sm">International (USD)</button>
+    </div>
+  </div>
+  <div id="pricing-grid" class="grid md:grid-cols-3 gap-6 mt-14"></div>
+  <div class="glass rounded-3xl p-12 text-center mt-20 reveal">
+    <h2 class="font-display text-3xl font-bold text-white">Need something custom?</h2>
+    <p class="text-slate-400 mt-3">Every business is different. Book a free call and we'll build a quote around your exact needs.</p>
+    <a href="contact.html#schedule" class="btn-primary inline-block mt-6 px-7 py-3.5 rounded-xl">Book a Free Call</a>
+  </div>
+</main>
+<div id="site-footer"></div>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/ui.js"></script>
+<script src="assets/js/pricing.js"></script>
+</body>
+</html>

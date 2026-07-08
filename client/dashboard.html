@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Dashboard &mdash; King Praise Web Design</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{display:['Space Grotesk','sans-serif'],sans:['Inter','sans-serif']}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header class="border-b border-white/10">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <span class="bracket-mark text-2xl"><span class="bkt">&lt;</span><span class="slash">K</span><span class="bkt">/&gt;</span></span>
+      <span class="font-display font-semibold text-white">Client Portal</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="text-slate-400 text-sm">Hi, <span id="client-name" class="text-white font-medium"></span></span>
+      <a href="../index.html" class="btn-ghost px-4 py-2 rounded-lg text-sm">Main Site</a>
+      <button id="logout-btn" class="btn-ghost px-4 py-2 rounded-lg text-sm">Logout</button>
+    </div>
+  </div>
+</header>
+<main class="max-w-6xl mx-auto px-5 lg:px-8 py-12">
+  <h1 class="font-display text-3xl font-bold text-white">Your Projects</h1>
+  <p class="text-slate-400 mt-2">Track progress, milestones, and updates from our team.</p>
+  <div id="projects-container" class="space-y-6 mt-8"></div>
+</main>
+<script src="../assets/js/config.js"></script>
+<script src="../assets/js/api.js"></script>
+<script src="../assets/js/ui.js"></script>
+<script src="../assets/js/client-dashboard.js"></script>
+</body>
+</html>
