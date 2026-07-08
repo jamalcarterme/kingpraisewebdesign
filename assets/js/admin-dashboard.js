@@ -623,9 +623,18 @@
     });
   }
 
+  function openSidebar() {
+    document.getElementById('admin-sidebar').classList.remove('-translate-x-full');
+    document.getElementById('sidebar-overlay').classList.remove('hidden');
+  }
+  function closeSidebar() {
+    document.getElementById('admin-sidebar').classList.add('-translate-x-full');
+    document.getElementById('sidebar-overlay').classList.add('hidden');
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     if (!guard()) return;
-    sections.forEach(s => document.getElementById(`tab-${s}`).addEventListener('click', () => switchSection(s)));
+    sections.forEach(s => document.getElementById(`tab-${s}`).addEventListener('click', () => { switchSection(s); closeSidebar(); }));
     document.getElementById('modal-close').addEventListener('click', closeModal);
     document.getElementById('admin-modal').addEventListener('click', (e) => { if (e.target.id === 'admin-modal') closeModal(); });
     document.getElementById('add-project-btn').addEventListener('click', () => window.adminProjects.create());
@@ -634,6 +643,9 @@
     document.getElementById('add-testimonial-btn').addEventListener('click', () => window.adminTestimonials.create());
     document.getElementById('add-announcement-btn').addEventListener('click', () => window.adminAnnouncements.create());
     document.getElementById('add-client-project-btn').addEventListener('click', () => window.adminClients.createNew());
+    document.getElementById('sidebar-toggle').addEventListener('click', openSidebar);
+    document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
+    document.getElementById('sidebar-overlay').addEventListener('click', closeSidebar);
     handleLogout();
     switchSection(window.location.hash.replace('#', '') || 'overview');
   });
