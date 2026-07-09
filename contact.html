@@ -58,32 +58,12 @@
       </form>
     </div>
 
-    <div id="schedule" class="glass rounded-2xl p-8 reveal">
-      <h2 class="font-display text-2xl font-semibold text-white">Book a free call</h2>
-      <form id="booking-form" class="mt-6 space-y-4">
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div><label class="form-label">Name</label><input required name="name" class="form-input"></div>
-          <div><label class="form-label">Email</label><input required type="email" name="email" class="form-input"></div>
-        </div>
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div><label class="form-label">Phone</label><input name="phone" class="form-input"></div>
-          <div><label class="form-label">Company</label><input name="company" class="form-input"></div>
-        </div>
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div><label class="form-label">Country</label><input name="country" class="form-input"></div>
-          <div><label class="form-label">Project Type</label>
-            <select name="projectType" class="form-input">
-              <option>Website</option><option>Mobile App</option><option>Custom Software</option><option>Not Sure</option>
-            </select>
-          </div>
-        </div>
-        <div class="grid sm:grid-cols-2 gap-4">
-          <div><label class="form-label">Preferred Date</label><input required type="date" name="preferredDate" class="form-input"></div>
-          <div><label class="form-label">Preferred Time</label><input required type="time" name="preferredTime" class="form-input"></div>
-        </div>
-        <div><label class="form-label">Anything we should know?</label><textarea name="message" rows="3" class="form-input"></textarea></div>
-        <button type="submit" class="btn-primary w-full py-3.5 rounded-xl">Schedule Call</button>
-      </form>
+    <div id="schedule" class="glass rounded-2xl p-8 reveal overflow-hidden">
+      <h2 class="font-display text-2xl font-semibold text-white mb-6">Book a free call</h2>
+      <!-- Calendly inline widget begin -->
+      <div class="calendly-inline-widget" data-url="https://calendly.com/kingpraisewebdesign/30min?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <!-- Calendly inline widget end -->
     </div>
   </div>
 </main>
