@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /client/
+
+Sitemap: https://www.kingpraisewebdesign.name.ng/sitemap.xml
