@@ -16,6 +16,9 @@
   let currentEl = null;
   let keepAliveTimer = null;
   let voice = null;
+  const utteranceRefs = []; // Chrome garbage-collects SpeechSynthesisUtterance objects that
+                            // have no live reference, silently killing playback mid-queue.
+                            // Keeping them here prevents that.
 
   function pickVoice() {
     const voices = window.speechSynthesis.getVoices() || [];
@@ -99,6 +102,7 @@
     utter.pitch = 1;
     utter.onend = () => { if (state === 'speaking') speakNext(); };
     utter.onerror = () => { if (state === 'speaking') speakNext(); };
+    utteranceRefs.push(utter);
     window.speechSynthesis.speak(utter);
   }
 
@@ -113,6 +117,7 @@
     idx = -1;
     if (!queue.length) return;
     window.speechSynthesis.cancel();
+    utteranceRefs.length = 0;
     state = 'speaking';
     startKeepAlive();
     speakNext();
