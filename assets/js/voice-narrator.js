@@ -44,15 +44,48 @@
     return (t || '').replace(/\s+/g, ' ').trim();
   }
 
+  // Chrome has a long-standing bug where a single SpeechSynthesisUtterance
+  // longer than ~15s of speech gets silently killed partway through (this is
+  // what was causing playback to die right after the hero paragraph started).
+  // Splitting text into short, sentence-sized chunks keeps every utterance
+  // well under that threshold so the bug never gets a chance to trigger.
+  const MAX_CHUNK_LEN = 180;
+
+  function splitIntoChunks(text) {
+    const sentences = text.match(/[^.!?]+[.!?]+(?=\s|$)|[^.!?]+$/g) || [text];
+    const chunks = [];
+    let buffer = '';
+    sentences.forEach(raw => {
+      const s = raw.trim();
+      if (!s) return;
+      if (s.length > MAX_CHUNK_LEN) {
+        if (buffer) { chunks.push(buffer); buffer = ''; }
+        for (let i = 0; i < s.length; i += MAX_CHUNK_LEN) chunks.push(s.slice(i, i + MAX_CHUNK_LEN));
+        return;
+      }
+      const merged = buffer ? `${buffer} ${s}` : s;
+      if (merged.length > MAX_CHUNK_LEN) {
+        chunks.push(buffer);
+        buffer = s;
+      } else {
+        buffer = merged;
+      }
+    });
+    if (buffer) chunks.push(buffer);
+    return chunks.length ? chunks : [text];
+  }
+
   function collectNodes() {
     const all = Array.from(root.querySelectorAll(READABLE_SELECTOR));
-    return all
+    const items = [];
+    all
       .filter(el => !el.closest(EXCLUDE_CLOSEST))
-      .map(el => ({
-        el,
-        text: cleanText(el.hasAttribute('data-narrate') ? el.getAttribute('data-narrate') : el.textContent)
-      }))
-      .filter(item => item.text.length > 1);
+      .forEach(el => {
+        const text = cleanText(el.hasAttribute('data-narrate') ? el.getAttribute('data-narrate') : el.textContent);
+        if (text.length <= 1) return;
+        splitIntoChunks(text).forEach(chunk => items.push({ el, text: chunk }));
+      });
+    return items;
   }
 
   function clearHighlight() {
@@ -68,15 +101,28 @@
   }
 
   function startKeepAlive() {
-    // Chrome bug: speechSynthesis silently stops after ~15s on long utterances.
-    // Periodically nudging pause/resume keeps it alive.
+    // Chunking utterances (see splitIntoChunks) removes the need for the old
+    // "pause immediately followed by resume" trick — calling pause() and
+    // resume() back-to-back with no gap is itself a known way to make Chrome
+    // silently drop the rest of the speech queue, which was likely
+    // contributing to playback dying partway through. Instead we run a
+    // lightweight watchdog: if Chrome ever stops speaking without firing
+    // onend/onerror (another documented silent-failure mode), we detect the
+    // stall and resume the queue ourselves instead of leaving it dead.
     stopKeepAlive();
+    let lastIdx = idx;
+    let stalledTicks = 0;
     keepAliveTimer = setInterval(() => {
-      if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
-        window.speechSynthesis.pause();
-        window.speechSynthesis.resume();
+      if (state !== 'speaking') return;
+      if (idx !== lastIdx) { lastIdx = idx; stalledTicks = 0; return; }
+      if (window.speechSynthesis.speaking || window.speechSynthesis.pending) { stalledTicks = 0; return; }
+      // Nothing playing, nothing pending, but we think we're still speaking — stalled.
+      stalledTicks += 1;
+      if (stalledTicks >= 1) {
+        stalledTicks = 0;
+        speakNext();
       }
-    }, 10000);
+    }, 2000);
   }
 
   function stopKeepAlive() {
@@ -93,15 +139,15 @@
       return;
     }
     const item = queue[idx];
-    highlight(item.el);
+    if (item.el !== currentEl) highlight(item.el);
     updateUI();
 
     const utter = new SpeechSynthesisUtterance(item.text);
     if (voice) utter.voice = voice;
     utter.rate = 1;
     utter.pitch = 1;
-    utter.onend = () => { if (state === 'speaking') speakNext(); };
-    utter.onerror = () => { if (state === 'speaking') speakNext(); };
+    utter.onend = () => { if (state === 'speaking') setTimeout(speakNext, 40); };
+    utter.onerror = () => { if (state === 'speaking') setTimeout(speakNext, 40); };
     utteranceRefs.push(utter);
     window.speechSynthesis.speak(utter);
   }

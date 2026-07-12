@@ -15,6 +15,7 @@
         </div>
         <h3 class="font-display text-lg font-semibold text-white clamp-2">${p.title}</h3>
         <p class="text-slate-400 text-sm mt-2 clamp-3">${p.excerpt}</p>
+        <span class="inline-block text-[var(--brand-2)] text-xs font-semibold mt-3 group-hover:underline">Read full article &rarr;</span>
       </div>
     </a>`;
   }
