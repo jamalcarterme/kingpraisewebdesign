@@ -27,14 +27,14 @@
       ${tier.featured ? '<span class="absolute -top-3 left-8 badge bg-[var(--brand)] text-white">Most Popular</span>' : ''}
       <h3 class="font-display text-xl font-semibold text-white">${tier.name}</h3>
       <p class="text-slate-400 text-sm mt-2 min-h-[40px]">${tier.desc}</p>
-      <div class="mt-6 flex items-end gap-1">
+      <div class="mt-6 flex items-end gap-1" data-narrate="${tier.name} plan: ${currency}${tier.price}, ${tier.period}.">
         <span class="text-3xl font-display font-bold text-white">${currency}${tier.price}</span>
         <span class="text-slate-500 text-sm mb-1">/ ${tier.period}</span>
       </div>
       <ul class="mt-6 space-y-3">
         ${tier.features.map(f => `<li class="flex items-start gap-2 text-sm text-slate-300"><svg class="w-5 h-5 text-[var(--brand-2)] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>${f}</li>`).join('')}
       </ul>
-      <a href="contact.html#schedule" class="mt-8 block text-center btn-primary rounded-lg py-3">Get Started</a>
+      <a href="contact.html#schedule" class="mt-8 block text-center btn-primary rounded-lg py-3" data-narrate="Get started with the ${tier.name} plan">Get Started</a>
     </div>`;
   }
 
