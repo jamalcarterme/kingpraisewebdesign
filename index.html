@@ -67,8 +67,9 @@
 <script>tailwind.config={theme:{extend:{fontFamily:{display:['Space Grotesk','sans-serif'],sans:['Inter','sans-serif']}}}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="assets/img/favicon.png">
-<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon.png" sizes="256x256">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
@@ -88,29 +89,29 @@
   <section class="relative bg-grid overflow-hidden">
     <div class="glow-orb bg-[var(--brand)] w-[500px] h-[500px] -top-40 -left-40"></div>
     <div class="glow-orb bg-[var(--brand-2)] w-[400px] h-[400px] top-40 right-0"></div>
-    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-16 lg:py-28 grid lg:grid-cols-2 gap-14 items-center relative">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8 py-10 sm:py-16 lg:py-28 grid lg:grid-cols-2 gap-8 lg:gap-14 items-center relative">
       <div>
         <span class="reveal in inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[var(--brand-2)] bg-white/5 border border-white/10 px-4 py-1.5 rounded-full">Remote &middot; Global Delivery</span>
-        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mt-6 reveal in">
+        <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.15] mt-5 sm:mt-6 reveal in">
           We engineer <span class="text-gradient">premium digital products</span> that grow your business.
         </h1>
-        <p class="text-slate-400 text-lg mt-6 max-w-xl reveal in">Custom website design, e-commerce, mobile apps and software for law firms, real estate agencies, churches and small businesses &mdash; designed with intent, built with clean code, and shipped fast.</p>
-        <div class="flex flex-wrap gap-4 mt-8 reveal in">
+        <p class="text-slate-400 text-base sm:text-lg mt-4 sm:mt-6 max-w-xl reveal in">Custom website design, e-commerce, mobile apps and software for law firms, real estate agencies, churches and small businesses &mdash; designed with intent, built with clean code, and shipped fast.</p>
+        <div class="flex flex-wrap gap-4 mt-6 sm:mt-8 reveal in">
           <a href="#schedule" class="btn-primary px-7 py-3.5 rounded-xl" data-narrate="Book a free call to get started">Book a Free Call</a>
           <a href="portfolio.html" class="btn-ghost px-7 py-3.5 rounded-xl">View Our Work</a>
         </div>
-        <div class="flex items-center gap-6 mt-10 text-slate-500 text-sm reveal in">
-          <div data-narrate="10+ projects shipped"><span class="text-white font-display font-bold text-xl">10+</span> Projects Shipped</div>
-          <div data-narrate="4.9 out of 5 client rating"><span class="text-white font-display font-bold text-xl">4.9/5</span> Client Rating</div>
-          <div data-narrate="12+ countries served"><span class="text-white font-display font-bold text-xl">12+</span> Countries Served</div>
+        <div class="flex items-center gap-4 sm:gap-6 mt-6 sm:mt-10 text-slate-500 text-xs sm:text-sm reveal in">
+          <div data-narrate="10+ projects shipped"><span class="text-white font-display font-bold text-lg sm:text-xl">10+</span> Projects Shipped</div>
+          <div data-narrate="4.9 out of 5 client rating"><span class="text-white font-display font-bold text-lg sm:text-xl">4.9/5</span> Client Rating</div>
+          <div data-narrate="12+ countries served"><span class="text-white font-display font-bold text-lg sm:text-xl">12+</span> Countries Served</div>
         </div>
       </div>
       <div class="relative reveal in">
-        <div class="glass rounded-2xl p-6 float">
-          <div class="flex items-center gap-2 mb-4">
+        <div class="glass rounded-2xl p-4 sm:p-6 float">
+          <div class="flex items-center gap-2 mb-3 sm:mb-4">
             <span class="w-3 h-3 rounded-full bg-rose-400"></span><span class="w-3 h-3 rounded-full bg-amber-400"></span><span class="w-3 h-3 rounded-full bg-emerald-400"></span>
           </div>
-          <pre class="text-sm leading-relaxed overflow-hidden h-[160px] sm:h-[168px]"><code id="hero-code"><span class="text-[var(--brand-3)]">const</span> <span class="text-white">project</span> <span class="text-slate-400">=</span> {
+          <pre class="text-xs sm:text-sm leading-relaxed overflow-hidden h-[110px] sm:h-[168px]"><code id="hero-code"><span class="text-[var(--brand-3)]">const</span> <span class="text-white">project</span> <span class="text-slate-400">=</span> {
   <span class="text-[var(--brand-2)]">client</span>: <span class="text-emerald-300">"your-brand"</span>,
   <span class="text-[var(--brand-2)]">stack</span>: [<span class="text-emerald-300">"design"</span>, <span class="text-emerald-300">"code"</span>, <span class="text-emerald-300">"growth"</span>],
   <span class="text-[var(--brand-2)]">status</span>: <span class="text-emerald-300">"shipped"</span><span class="caret">&nbsp;</span>
