@@ -56,7 +56,7 @@
           ${nav.map(n => `<a href="${root}${n.href}" class="text-slate-200 hover:text-white font-medium">${n.label}</a>`).join('')}
           <hr class="border-white/10">
           <a href="${root}client/login.html" class="btn-ghost text-center px-4 py-2 rounded-lg">Client Login</a>
-          <a href="${root}admin/login.html" class="text-slate-200 hover:text-white text-sm text-center font-medium transition">Admin Login</a>
+          <a href="${root}admin/login.html" class="text-sm text-center font-medium transition rounded-lg py-2" style="color:var(--text);background:var(--surface-2);border:1px solid var(--border)">Admin Login</a>
           <a href="${root}contact.html#schedule" class="btn-primary text-center px-4 py-2 rounded-lg">Book a Call</a>
         </div>
       </div>
