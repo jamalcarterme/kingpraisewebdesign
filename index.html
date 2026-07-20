@@ -103,38 +103,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <main class="pt-24">
   <!-- HERO -->
   <section id="hero" class="relative overflow-hidden">
-    <svg class="globe-svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <radialGradient id="globeGlow" cx="50%" cy="45%" r="55%">
-          <stop offset="0%" stop-color="#2F6FED" stop-opacity=".35"/>
-          <stop offset="100%" stop-color="#2F6FED" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <circle cx="400" cy="230" r="230" fill="url(#globeGlow)"/>
-      <g fill="none" stroke="#7C5CFF" stroke-opacity=".35" stroke-width="1">
-        <ellipse cx="400" cy="230" rx="230" ry="230"/>
-        <ellipse cx="400" cy="230" rx="230" ry="90"/>
-        <ellipse cx="400" cy="230" rx="230" ry="150"/>
-        <ellipse cx="400" cy="230" rx="90" ry="230"/>
-        <ellipse cx="400" cy="230" rx="150" ry="230"/>
-        <line x1="170" y1="230" x2="630" y2="230"/>
-      </g>
-      <g fill="#22D3EE">
-        <circle cx="230" cy="150" r="3.5"><animate attributeName="opacity" values="1;.2;1" dur="3s" repeatCount="indefinite"/></circle>
-        <circle cx="520" cy="120" r="3"><animate attributeName="opacity" values=".3;1;.3" dur="2.4s" repeatCount="indefinite"/></circle>
-        <circle cx="600" cy="260" r="3.5"><animate attributeName="opacity" values="1;.3;1" dur="2.8s" repeatCount="indefinite"/></circle>
-        <circle cx="260" cy="330" r="3"><animate attributeName="opacity" values=".4;1;.4" dur="3.4s" repeatCount="indefinite"/></circle>
-        <circle cx="450" cy="340" r="3.5"><animate attributeName="opacity" values="1;.2;1" dur="2.6s" repeatCount="indefinite"/></circle>
-        <circle cx="330" cy="190" r="2.5"><animate attributeName="opacity" values=".3;1;.3" dur="3.2s" repeatCount="indefinite"/></circle>
-      </g>
-      <g stroke="#22D3EE" stroke-opacity=".4" stroke-width="1" fill="none">
-        <path d="M230,150 Q380,60 520,120"/>
-        <path d="M520,120 Q580,190 600,260"/>
-        <path d="M260,330 Q360,270 450,340"/>
-        <path d="M330,190 Q400,240 450,340"/>
-        <path d="M230,150 Q250,250 260,330"/>
-      </g>
-    </svg>
+    <video class="hero-bg-video" autoplay muted loop playsinline preload="none" poster="https://images.pexels.com/videos/20563164/dark-laptop-room-20563164.jpeg?auto=compress&cs=tinysrgb&w=1920" aria-hidden="true">
+      <source src="https://videos.pexels.com/video-files/20563164/20563164-uhd_2560_1440_30fps.mp4" type="video/mp4">
+    </video>
     <div class="glow-orb bg-[var(--brand)] w-[500px] h-[500px] -top-40 -left-40"></div>
     <div class="glow-orb bg-[var(--brand-2)] w-[400px] h-[400px] top-40 right-0"></div>
     <div class="max-w-7xl mx-auto px-5 lg:px-8 py-6 sm:py-12 lg:py-24 grid lg:grid-cols-2 gap-8 lg:gap-14 items-center relative z-10">
