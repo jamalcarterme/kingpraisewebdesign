@@ -69,35 +69,44 @@ body{
 [data-theme="light"] .prose-invert :is(h1,h2,h3,h4){ color:var(--text); }
 [data-theme="light"] .caret{ background:var(--brand-2); }
 
-/* Hero — global network background image, same in both themes */
+/* Hero — bright global-team photo background, consistent across themes */
 #hero{
   background:
-    linear-gradient(180deg, rgba(4,8,16,.72) 0%, rgba(4,8,16,.82) 55%, var(--bg) 100%),
-    radial-gradient(ellipse 1200px 600px at 50% -10%, #16233F 0%, #070B14 70%);
-  background-size:cover;
+    linear-gradient(180deg, rgba(6,10,20,.72) 0%, rgba(6,10,20,.55) 45%, rgba(6,10,20,.85) 100%),
+    url('https://images.pexels.com/photos/586104/pexels-photo-586104.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
 }
 [data-theme="light"] #hero{
   background:
-    linear-gradient(180deg, rgba(4,8,16,.74) 0%, rgba(4,8,16,.84) 55%, var(--bg) 100%),
-    radial-gradient(ellipse 1200px 600px at 50% -10%, #16233F 0%, #070B14 70%);
+    linear-gradient(180deg, rgba(6,10,20,.72) 0%, rgba(6,10,20,.55) 45%, rgba(6,10,20,.85) 100%),
+    url('https://images.pexels.com/photos/586104/pexels-photo-586104.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
 }
-#hero .globe-svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.5; z-index:0; }
+#hero .globe-svg{ position:absolute; inset:0; width:100%; height:100%; opacity:.22; z-index:0; }
 [data-theme="light"] #hero .text-white{ color:#fff !important; }
-[data-theme="light"] #hero .text-slate-400{ color:#B9C2D6 !important; }
-[data-theme="light"] #hero .text-slate-500{ color:#8C97AE !important; }
+[data-theme="light"] #hero .text-slate-400{ color:#DCE2EF !important; }
+[data-theme="light"] #hero .text-slate-500{ color:#B9C2D6 !important; }
 [data-theme="light"] #hero span.bg-white\/5{
-  background:rgba(255,255,255,.06) !important;
-  border-color:rgba(255,255,255,.14) !important;
+  background:rgba(255,255,255,.1) !important;
+  border-color:rgba(255,255,255,.22) !important;
   box-shadow:none;
 }
 [data-theme="light"] #hero .glass{
-  background:rgba(15,23,40,.55);
-  border-color:rgba(255,255,255,.12);
+  background:rgba(10,15,26,.6);
+  border-color:rgba(255,255,255,.14);
   box-shadow:0 24px 60px -28px rgba(0,0,0,.5);
   backdrop-filter:blur(10px);
 }
 [data-theme="light"] #hero .marquee-track,
-[data-theme="light"] #hero .border-white\/10{ border-color:rgba(255,255,255,.1) !important; color:#8C97AE; }
+[data-theme="light"] #hero .border-white\/10{ border-color:rgba(255,255,255,.14) !important; color:#DCE2EF; }
+/* Ghost button always readable over the hero photo, in either theme */
+#hero .btn-ghost{
+  color:#fff !important;
+  border-color:rgba(255,255,255,.55) !important;
+  background:rgba(255,255,255,.06);
+}
+#hero .btn-ghost:hover{
+  background:rgba(255,255,255,.16) !important;
+  border-color:#fff !important;
+}
 
 /* Theme toggle button */
 .theme-toggle{
