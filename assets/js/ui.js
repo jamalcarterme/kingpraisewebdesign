@@ -47,12 +47,21 @@
           </div>
           <div class="flex items-center gap-2 lg:hidden">
             ${themeToggleHTML()}
-            <button id="menu-btn" class="text-white p-2" aria-label="Menu">
+            <button id="menu-btn" class="text-white p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
           </div>
         </div>
-        <div id="mobile-menu" class="hidden glass rounded-2xl mt-2 p-5 flex flex-col gap-4 lg:hidden">
+      </div>
+      <div id="mobile-menu-overlay" class="mobile-menu-overlay" hidden></div>
+      <div id="mobile-menu" class="mobile-menu glass" aria-hidden="true">
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-display font-semibold text-white text-lg">Menu</span>
+          <button id="menu-close-btn" class="text-white p-2" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <div class="flex flex-col gap-4">
           ${nav.map(n => `<a href="${root}${n.href}" class="text-slate-200 hover:text-white font-medium">${n.label}</a>`).join('')}
           <hr class="border-white/10">
           <a href="${root}client/login.html" class="btn-ghost text-center px-4 py-2 rounded-lg">Client Login</a>
@@ -153,9 +162,35 @@
       yearEl.textContent = now > start ? `${start}\u2013${now}` : `${start}`;
     }
     const menuBtn = document.getElementById('menu-btn');
+    const menuCloseBtn = document.getElementById('menu-close-btn');
     const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-menu-overlay');
+    function openMenu() {
+      if (!menu || !overlay) return;
+      overlay.hidden = false;
+      requestAnimationFrame(() => {
+        menu.classList.add('open');
+        overlay.classList.add('open');
+      });
+      menu.setAttribute('aria-hidden', 'false');
+      menuBtn && menuBtn.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+    }
+    function closeMenu() {
+      if (!menu || !overlay) return;
+      menu.classList.remove('open');
+      overlay.classList.remove('open');
+      menu.setAttribute('aria-hidden', 'true');
+      menuBtn && menuBtn.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      setTimeout(() => { if (!menu.classList.contains('open')) overlay.hidden = true; }, 300);
+    }
     if (menuBtn && menu) {
-      menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+      menuBtn.addEventListener('click', openMenu);
+      menuCloseBtn && menuCloseBtn.addEventListener('click', closeMenu);
+      overlay && overlay.addEventListener('click', closeMenu);
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
     }
     bindThemeToggles();
   }
