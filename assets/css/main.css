@@ -69,20 +69,16 @@ body{
 [data-theme="light"] .prose-invert :is(h1,h2,h3,h4){ color:var(--text); }
 [data-theme="light"] .caret{ background:var(--brand-2); }
 
-/* Hero — background video (falls back to poster image if video can't load) */
+/* Hero — bright "coding at home" photo background, consistent across themes */
 #hero{
   background:
-    linear-gradient(180deg, rgba(6,10,20,.72) 0%, rgba(6,10,20,.55) 45%, rgba(6,10,20,.85) 100%),
-    url('https://images.pexels.com/videos/20563164/dark-laptop-room-20563164.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+    linear-gradient(180deg, rgba(6,10,20,.68) 0%, rgba(6,10,20,.5) 45%, rgba(6,10,20,.82) 100%),
+    url('https://images.pexels.com/photos/13432327/pexels-photo-13432327.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
 }
 [data-theme="light"] #hero{
   background:
-    linear-gradient(180deg, rgba(6,10,20,.72) 0%, rgba(6,10,20,.55) 45%, rgba(6,10,20,.85) 100%),
-    url('https://images.pexels.com/videos/20563164/dark-laptop-room-20563164.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
-}
-#hero .hero-bg-video{
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; z-index:0;
+    linear-gradient(180deg, rgba(6,10,20,.68) 0%, rgba(6,10,20,.5) 45%, rgba(6,10,20,.82) 100%),
+    url('https://images.pexels.com/photos/13432327/pexels-photo-13432327.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
 }
 [data-theme="light"] #hero .text-white{ color:#fff !important; }
 [data-theme="light"] #hero .text-slate-400{ color:#DCE2EF !important; }
