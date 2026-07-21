@@ -3,11 +3,29 @@
   const nav = [
     { href: 'index.html', label: 'Home' },
     { href: 'services.html', label: 'Services' },
+    { href: 'locations', label: 'Locations' },
     { href: 'portfolio.html', label: 'Portfolio' },
     { href: 'pricing.html', label: 'Pricing' },
     { href: 'blog.html', label: 'Blog' },
     { href: 'about.html', label: 'About' },
     { href: 'contact.html', label: 'Contact' }
+  ];
+
+  const serviceLinks = [
+    { href: 'web-design-for-law-firms.html', label: 'Web Design for Law Firms' },
+    { href: 'real-estate-website-design.html', label: 'Real Estate Website Design' },
+    { href: 'restaurant-website-design.html', label: 'Restaurant Website Design' },
+    { href: 'med-spa-web-design.html', label: 'Med Spa Web Design' },
+    { href: 'seo-services-for-small-business.html', label: 'SEO for Small Business' },
+    { href: 'landing-page-design.html', label: 'Landing Page Design' }
+  ];
+
+  const locationLinks = [
+    { href: 'web-design-lagos.html', label: 'Lagos' },
+    { href: 'web-design-abuja.html', label: 'Abuja' },
+    { href: 'web-design-benin-city.html', label: 'Benin City' },
+    { href: 'web-design-port-harcourt.html', label: 'Port Harcourt' },
+    { href: 'web-design-ibadan.html', label: 'Ibadan' }
   ];
 
   function currentFile() {
@@ -30,7 +48,37 @@
   function headerHTML() {
     const root = rootPrefix();
     const cur = currentFile();
-    const links = nav.map(n => `<a href="${root}${n.href}" class="nav-link text-sm font-medium ${cur === n.href && root === '' ? 'active text-white' : 'text-slate-300'} hover:text-white transition">${n.label}</a>`).join('');
+    const svcActive = serviceLinks.some(s => s.href === cur);
+    const locActive = locationLinks.some(s => s.href === cur);
+    const links = nav.map(n => {
+      if (n.href === 'services.html') {
+        return `
+      <div class="relative group">
+        <a href="${root}services.html" class="nav-link text-sm font-medium ${(cur === 'services.html' || svcActive) && root === '' ? 'active text-white' : 'text-slate-300'} hover:text-white transition inline-flex items-center gap-1">Services
+          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
+          <div class="glass rounded-xl p-2 min-w-[240px]">
+            ${serviceLinks.map(s => `<a href="${root}${s.href}" class="block px-3 py-2 rounded-lg text-sm ${cur === s.href ? 'text-white bg-white/5' : 'text-slate-300'} hover:text-white hover:bg-white/5 transition">${s.label}</a>`).join('')}
+          </div>
+        </div>
+      </div>`;
+      }
+      if (n.href === 'locations') {
+        return `
+      <div class="relative group">
+        <a href="${root}web-design-lagos.html" class="nav-link text-sm font-medium ${locActive && root === '' ? 'active text-white' : 'text-slate-300'} hover:text-white transition inline-flex items-center gap-1">Locations
+          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+        <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
+          <div class="glass rounded-xl p-2 min-w-[200px]">
+            ${locationLinks.map(s => `<a href="${root}${s.href}" class="block px-3 py-2 rounded-lg text-sm ${cur === s.href ? 'text-white bg-white/5' : 'text-slate-300'} hover:text-white hover:bg-white/5 transition">${s.label}</a>`).join('')}
+          </div>
+        </div>
+      </div>`;
+      }
+      return `<a href="${root}${n.href}" class="nav-link text-sm font-medium ${cur === n.href && root === '' ? 'active text-white' : 'text-slate-300'} hover:text-white transition">${n.label}</a>`;
+    }).join('');
     return `
     <header class="fixed top-0 inset-x-0 z-50">
       <div class="mx-auto max-w-7xl px-5 lg:px-8">
@@ -62,7 +110,14 @@
           </button>
         </div>
         <div class="flex flex-col gap-4">
-          ${nav.map(n => `<a href="${root}${n.href}" class="text-slate-200 hover:text-white font-medium">${n.label}</a>`).join('')}
+          ${nav.filter(n => n.href !== 'locations').map(n => `<a href="${root}${n.href}" class="text-slate-200 hover:text-white font-medium">${n.label}</a>`).join('')}
+          <div class="pl-3 border-l border-white/10 flex flex-col gap-3">
+            ${serviceLinks.map(s => `<a href="${root}${s.href}" class="text-slate-400 hover:text-white text-sm">${s.label}</a>`).join('')}
+          </div>
+          <span class="text-slate-200 font-medium">Locations</span>
+          <div class="pl-3 border-l border-white/10 flex flex-col gap-3">
+            ${locationLinks.map(s => `<a href="${root}${s.href}" class="text-slate-400 hover:text-white text-sm">${s.label}</a>`).join('')}
+          </div>
           <hr class="border-white/10">
           <a href="${root}client/login.html" class="btn-ghost text-center px-4 py-2 rounded-lg">Client Login</a>
           <a href="${root}admin/login.html" class="text-sm text-center font-medium transition rounded-lg py-2" style="color:var(--text);background:var(--surface-2);border:1px solid var(--border)">Admin Login</a>
@@ -91,6 +146,8 @@
             <li><a href="${root}portfolio.html" class="hover:text-white transition">Portfolio</a></li>
             <li><a href="${root}blog.html" class="hover:text-white transition">Blog</a></li>
             <li><a href="${root}pricing.html" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="${root}web-design-lagos.html" class="hover:text-white transition">Web Design in Lagos</a></li>
+            <li><a href="${root}web-design-abuja.html" class="hover:text-white transition">Web Design in Abuja</a></li>
           </ul>
         </div>
         <div>

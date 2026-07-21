@@ -7,7 +7,7 @@
     return `
     <a href="blog-post.html?slug=${p.slug}" class="reveal glass rounded-2xl overflow-hidden card-hover group">
       <div class="aspect-[16/10] overflow-hidden bg-[var(--surface-2)]">
-        <img src="${p.coverImage?.url || ''}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+        <img src="${p.coverImage?.url || ''}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'" loading="lazy" decoding="async">
       </div>
       <div class="p-6">
         <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">

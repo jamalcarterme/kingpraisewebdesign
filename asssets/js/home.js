@@ -32,7 +32,7 @@
       grid.innerHTML = list.map(p => `
         <a href="portfolio.html" class="reveal glass rounded-2xl overflow-hidden card-hover group">
           <div class="aspect-[4/3] overflow-hidden bg-[var(--surface-2)]">
-            <img src="${p.image?.url || ''}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+            <img src="${p.image?.url || ''}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'" loading="lazy" decoding="async">
           </div>
           <div class="p-6">
             <span class="text-xs font-semibold text-[var(--brand-2)] uppercase tracking-wide">${p.category || 'Website'}</span>
@@ -54,7 +54,7 @@
       if (!list.length) { document.getElementById('team-section')?.classList.add('hidden'); return; }
       grid.innerHTML = list.map(m => `
         <div class="reveal glass rounded-2xl p-6 text-center card-hover">
-          <img src="${m.photo?.url || ''}" onerror="this.style.display='none'" class="w-24 h-24 rounded-full object-cover mx-auto bg-[var(--surface-2)]">
+          <img src="${m.photo?.url || ''}" alt="${m.name || 'Team member'}" onerror="this.style.display='none'" class="w-24 h-24 rounded-full object-cover mx-auto bg-[var(--surface-2)]" loading="lazy" decoding="async">
           <h3 class="font-display font-semibold text-white mt-4">${m.name}</h3>
           <p class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-wide mt-1">${m.role}</p>
           <p class="text-slate-400 text-sm mt-3 clamp-3">${m.bio || ''}</p>
@@ -81,7 +81,7 @@
           <div class="flex gap-1 text-amber-400 mb-3">${'\u2605'.repeat(t.rating || 5)}</div>
           <p class="text-slate-200 text-sm leading-relaxed">&ldquo;${t.quote}&rdquo;</p>
           <div class="flex items-center gap-3 mt-5">
-            <img src="${t.photo?.url || ''}" onerror="this.style.display='none'" class="w-10 h-10 rounded-full object-cover bg-[var(--surface-2)]">
+            <img src="${t.photo?.url || ''}" alt="${t.name || 'Client'}" onerror="this.style.display='none'" class="w-10 h-10 rounded-full object-cover bg-[var(--surface-2)]" loading="lazy" decoding="async">
             <div>
               <p class="text-white text-sm font-semibold">${t.name}</p>
               <p class="text-slate-500 text-xs">${t.role || ''}${t.country ? ' &middot; ' + t.country : ''}</p>
@@ -105,7 +105,7 @@
       box.innerHTML = data.reviews.slice(0, 6).map(r => `
         <div class="reveal glass rounded-2xl p-6 card-hover">
           <div class="flex items-center gap-3 mb-3">
-            <img src="${r.photo || ''}" onerror="this.style.display='none'" class="w-9 h-9 rounded-full">
+            <img src="${r.photo || ''}" alt="${r.author || 'Reviewer'}" onerror="this.style.display='none'" class="w-9 h-9 rounded-full" loading="lazy" decoding="async">
             <div>
               <p class="text-white text-sm font-semibold">${r.author}</p>
               <p class="text-amber-400 text-xs">${'\u2605'.repeat(r.rating || 5)}</p>

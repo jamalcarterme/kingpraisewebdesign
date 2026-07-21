@@ -10,7 +10,7 @@
       if (!list.length) { grid.innerHTML = '<p class="text-slate-400 col-span-full text-center">Team profiles coming soon.</p>'; return; }
       grid.innerHTML = list.map(m => `
         <div class="reveal glass rounded-2xl p-6 text-center card-hover">
-          <img src="${m.photo?.url || ''}" onerror="this.style.display='none'" class="w-24 h-24 rounded-full object-cover mx-auto bg-[var(--surface-2)]">
+          <img src="${m.photo?.url || ''}" alt="${m.name || 'Team member'}" onerror="this.style.display='none'" class="w-24 h-24 rounded-full object-cover mx-auto bg-[var(--surface-2)]" loading="lazy" decoding="async">
           <h3 class="font-display font-semibold text-white mt-4">${m.name}</h3>
           <p class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-wide mt-1">${m.role}</p>
           <p class="text-slate-400 text-sm mt-3 clamp-3">${m.bio || ''}</p>

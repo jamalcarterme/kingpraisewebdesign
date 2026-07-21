@@ -8,7 +8,7 @@
     grid.innerHTML = list.map(p => `
       <div class="reveal glass rounded-2xl overflow-hidden card-hover group">
         <div class="aspect-[4/3] overflow-hidden bg-[var(--surface-2)] relative">
-          <img src="${p.image?.url || ''}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'">
+          <img src="${p.image?.url || ''}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.style.display='none'" loading="lazy" decoding="async">
           ${p.isFeatured ? '<span class="absolute top-3 left-3 badge bg-[var(--brand)] text-white">Featured</span>' : ''}
         </div>
         <div class="p-6">
