@@ -169,6 +169,14 @@
           </ul>
         </div>
       </div>
+      <div class="border-t border-white/10 py-5 text-center text-xs text-slate-500">
+        <span class="tracking-wide uppercase text-slate-600">Verified on:</span>
+        <a href="https://maps.app.goo.gl/NithCM7diA8q4Fgn6" target="_blank" rel="noopener" class="hover:text-white transition ml-2">Google Business Profile</a>
+        <span class="mx-1">&middot;</span>
+        <a href="https://www.goodfirms.co/company/king-praise-web-design" target="_blank" rel="noopener" class="hover:text-white transition">GoodFirms</a>
+        <span class="mx-1">&middot;</span>
+        <a href="https://destinali.com/lagos/digital-agencies-tech/king-praise-web-design-lagos" target="_blank" rel="noopener" class="hover:text-white transition">Destinali</a>
+      </div>
       <div class="border-t border-white/10 py-6 text-center text-xs text-slate-500">
         &copy; <span id="copyright-year"></span> King Praise Web Design. All rights reserved.
       </div>

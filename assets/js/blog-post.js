@@ -11,6 +11,7 @@
       if (!p) throw new Error('not found');
       document.title = `${p.title} \u2014 King Praise Web Design`;
       const date = new Date(p.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      const updated = p.updatedAt && p.updatedAt !== p.createdAt ? new Date(p.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : null;
       const pageUrl = `https://www.kingpraisewebdesign.name.ng/blog-post.html?slug=${p.slug}`;
       const metaDesc = (p.excerpt || p.title).slice(0, 160);
       const setMeta = (id, attr, val) => { const el = document.getElementById(id); if (el) el.setAttribute(attr, val); };
@@ -34,7 +35,7 @@
         image: p.coverImage?.url ? [p.coverImage.url] : undefined,
         datePublished: p.createdAt,
         dateModified: p.updatedAt || p.createdAt,
-        author: { '@type': 'Organization', name: 'King Praise Web Design' },
+        author: { '@type': 'Person', name: 'King Praise', url: 'https://www.kingpraisewebdesign.name.ng/about.html' },
         publisher: {
           '@type': 'Organization',
           name: 'King Praise Web Design',
@@ -46,8 +47,8 @@
       container.innerHTML = `
         <p class="text-[var(--brand-2)] text-sm font-semibold uppercase tracking-wide mb-3">${p.category || 'General'}</p>
         <h1 class="font-display text-3xl md:text-5xl font-bold text-white leading-tight">${p.title}</h1>
-        <div class="flex items-center gap-3 text-slate-500 text-sm mt-5">
-          <span>${date}</span><span>&middot;</span><span>${p.views || 0} views</span>
+        <div class="flex items-center gap-3 text-slate-500 text-sm mt-5 flex-wrap">
+          <a href="about.html" class="text-[var(--brand-2)] hover:underline">King Praise</a><span>&middot;</span><span>${date}</span>${updated ? `<span>&middot;</span><span>Updated ${updated}</span>` : ''}<span>&middot;</span><span>${p.views || 0} views</span>
         </div>
         ${p.coverImage?.url ? `<img src="${p.coverImage.url}" class="w-full rounded-2xl mt-8 object-cover max-h-[480px]" onerror="this.style.display='none'">` : ''}
         <div class="prose-invert max-w-none mt-10 text-slate-300 leading-relaxed">${p.content}</div>
