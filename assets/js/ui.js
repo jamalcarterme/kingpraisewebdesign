@@ -17,7 +17,8 @@
     { href: 'restaurant-website-design.html', label: 'Restaurant Website Design' },
     { href: 'med-spa-web-design.html', label: 'Med Spa Web Design' },
     { href: 'seo-services-for-small-business.html', label: 'SEO for Small Business' },
-    { href: 'landing-page-design.html', label: 'Landing Page Design' }
+    { href: 'landing-page-design.html', label: 'Landing Page Design' },
+    { href: 'ecommerce-web-design-abuja.html', label: 'Ecommerce Web Design (Abuja)' }
   ];
 
   const locationLinks = [
