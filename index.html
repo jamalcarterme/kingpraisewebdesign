@@ -110,7 +110,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main class="pt-24">
   <!-- HERO -->
-  <section id="hero" class="relative overflow-hidden">
+  <section id="hero" aria-label="Hero section featuring company value proposition" class="relative overflow-hidden">
     <div class="glow-orb bg-[var(--brand)] w-[500px] h-[500px] -top-40 -left-40"></div>
     <div class="glow-orb bg-[var(--brand-2)] w-[400px] h-[400px] top-40 right-0"></div>
     <div class="max-w-7xl mx-auto px-5 lg:px-8 py-6 sm:py-12 lg:py-24 grid lg:grid-cols-2 gap-8 lg:gap-14 items-center relative z-10">
@@ -152,75 +152,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- TRUST -->
-  <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
-    <h2 class="font-display text-2xl sm:text-3xl font-bold text-white text-center reveal in">Trusted by Businesses Across Nigeria</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
-      <div class="reveal in glass rounded-xl p-5 text-center card-hover"><span class="text-emerald-400 text-lg">&#10003;</span><p class="text-slate-300 text-sm font-medium mt-1">SEO-Optimized Websites</p></div>
-      <div class="reveal in glass rounded-xl p-5 text-center card-hover"><span class="text-emerald-400 text-lg">&#10003;</span><p class="text-slate-300 text-sm font-medium mt-1">Mobile-Friendly</p></div>
-      <div class="reveal in glass rounded-xl p-5 text-center card-hover"><span class="text-emerald-400 text-lg">&#10003;</span><p class="text-slate-300 text-sm font-medium mt-1">Fast Loading</p></div>
-      <div class="reveal in glass rounded-xl p-5 text-center card-hover"><span class="text-emerald-400 text-lg">&#10003;</span><p class="text-slate-300 text-sm font-medium mt-1">Designed to Generate Leads</p></div>
-    </div>
-  </section>
-
-  <!-- WHAT WE DO / DEFINITION -->
-  <section class="max-w-5xl mx-auto px-5 lg:px-8 py-16">
-    <span class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-widest">What Is A Web Design Agency</span>
-    <h2 class="font-display text-2xl sm:text-3xl font-bold text-white mt-3">What does King Praise Web Design do?</h2>
-    <p class="text-slate-300 mt-4 leading-relaxed">King Praise Web Design is a remote-first web design and software agency based in Lagos, Nigeria. We design, build and maintain websites, mobile apps and custom software for law firms, real estate agencies, churches, restaurants and small businesses &mdash; combining conversion-focused design with clean, maintainable code (HTML, Tailwind CSS, JavaScript, React.js, Next.js, Express.js, Node.js, MongoDB and Nest.js).</p>
-    <h3 class="font-display text-lg font-semibold text-white mt-8">Why do small businesses in Nigeria need a custom website?</h3>
-    <p class="text-slate-400 mt-3 leading-relaxed">A custom website gives a business a professional, mobile-friendly storefront that ranks on Google, builds trust with visitors, and converts them into paying customers &mdash; something a generic social media page or DIY template site rarely does well.</p>
-    <div class="mt-10 glass rounded-2xl overflow-hidden">
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm text-left border-collapse min-w-[560px]">
-          <caption class="text-slate-500 text-xs text-left px-5 pt-4 pb-2">DIY builder vs. hiring a freelancer vs. King Praise Web Design</caption>
-          <thead>
-            <tr class="border-b border-white/10 text-slate-300 bg-white/5">
-              <th scope="col" class="py-3 px-5 font-semibold">Criteria</th>
-              <th scope="col" class="py-3 px-5 font-semibold">DIY Website Builder</th>
-              <th scope="col" class="py-3 px-5 font-semibold">Freelancer</th>
-              <th scope="col" class="py-3 px-5 font-semibold text-[var(--brand-2)] border-l border-white/10">King Praise Web Design</th>
-            </tr>
-          </thead>
-          <tbody class="text-slate-400">
-            <tr class="border-b border-white/5"><th scope="row" class="py-3 px-5 font-medium text-slate-300">Custom design</th><td class="py-3 px-5">Template-based</td><td class="py-3 px-5">Varies</td><td class="py-3 px-5 text-slate-200 border-l border-white/10">Fully custom</td></tr>
-            <tr class="border-b border-white/5"><th scope="row" class="py-3 px-5 font-medium text-slate-300">On-page SEO</th><td class="py-3 px-5">Basic</td><td class="py-3 px-5">Varies</td><td class="py-3 px-5 text-slate-200 border-l border-white/10">Built into every build</td></tr>
-            <tr class="border-b border-white/5"><th scope="row" class="py-3 px-5 font-medium text-slate-300">Custom backend / software</th><td class="py-3 px-5">No</td><td class="py-3 px-5">Sometimes</td><td class="py-3 px-5 text-slate-200 border-l border-white/10">Yes (Node.js/Express/MongoDB)</td></tr>
-            <tr class="border-b border-white/5"><th scope="row" class="py-3 px-5 font-medium text-slate-300">Ongoing support</th><td class="py-3 px-5">Self-managed</td><td class="py-3 px-5">Varies</td><td class="py-3 px-5 text-slate-200 border-l border-white/10">Direct access to the founder</td></tr>
-            <tr><th scope="row" class="py-3 px-5 font-medium text-slate-300">Typical timeline</th><td class="py-3 px-5">Days</td><td class="py-3 px-5">Varies</td><td class="py-3 px-5 text-slate-200 border-l border-white/10">2&ndash;4 weeks</td></tr>
-          </tbody>
-        </table>
+  <!-- SERVICES & ABOUT -->
+  <section id="services" class="max-w-7xl mx-auto px-5 lg:px-8 py-24">
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <div>
+        <span class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-widest">Who We Are</span>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3 leading-[1.2]">King Praise Web Design: Remote-first builders for Nigerian businesses</h2>
+        <p class="text-slate-400 mt-4 leading-relaxed">We're a web design and software agency based in Lagos, Nigeria. We work with law firms, real estate agencies, churches, restaurants and small businesses—combining conversion-focused design with clean, maintainable code built on the MERN stack (React, Node.js, MongoDB, Express.js).</p>
+        <p class="text-slate-400 mt-3 leading-relaxed">Our mission: Give your business a professional web presence that ranks on Google, builds trust with visitors, and converts them into paying customers.</p>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="glass rounded-xl p-6 text-center reveal">
+          <div class="font-display text-3xl font-bold text-[var(--brand-2)]">10+</div>
+          <p class="text-slate-400 text-sm mt-2">Projects Shipped</p>
+        </div>
+        <div class="glass rounded-xl p-6 text-center reveal">
+          <div class="font-display text-3xl font-bold text-[var(--brand-2)]">4.9/5</div>
+          <p class="text-slate-400 text-sm mt-2">Client Rating</p>
+        </div>
+        <div class="glass rounded-xl p-6 text-center reveal">
+          <div class="font-display text-3xl font-bold text-[var(--brand-2)]">12+</div>
+          <p class="text-slate-400 text-sm mt-2">Countries Served</p>
+        </div>
+        <div class="glass rounded-xl p-6 text-center reveal">
+          <div class="font-display text-3xl font-bold text-[var(--brand-2)]">2-4</div>
+          <p class="text-slate-400 text-sm mt-2">Weeks to Launch</p>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- SERVICES PREVIEW -->
-  <section class="max-w-7xl mx-auto px-5 lg:px-8 py-24">
-    <div class="text-center max-w-2xl mx-auto">
-      <span class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-widest">What We Do</span>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">Full-stack digital craftsmanship</h2>
+    
+    <div>
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-widest">What We Deliver</span>
+        <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mt-3">Full-stack digital solutions built for conversion</h3>
+      </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="reveal glass rounded-2xl p-8 card-hover"><div class="text-3xl">&#127760;</div><h3 class="font-display text-lg font-semibold text-white mt-4">Web Design &amp; Development</h3><p class="text-slate-400 text-sm mt-2">Fast, responsive websites built to convert visitors into customers with SEO fundamentals baked in.</p></div>
+      <div class="reveal glass rounded-2xl p-8 card-hover"><div class="text-3xl">&#128241;</div><h3 class="font-display text-lg font-semibold text-white mt-4">Mobile Apps</h3><p class="text-slate-400 text-sm mt-2">Native-feel apps for iOS and Android built on a single codebase with real-time functionality.</p></div>
+      <div class="reveal glass rounded-2xl p-8 card-hover"><div class="text-3xl">&#128736;&#65039;</div><h3 class="font-display text-lg font-semibold text-white mt-4">Custom Software</h3><p class="text-slate-400 text-sm mt-2">Bespoke dashboards, internal tools and automation systems tailored to your exact needs.</p></div>
     </div>
-    <div class="grid md:grid-cols-3 gap-6 mt-14">
-      <div class="reveal glass rounded-2xl p-8 card-hover"><div class="text-3xl">&#127760;</div><h3 class="font-display text-lg font-semibold text-white mt-4">Web Design &amp; Development</h3><p class="text-slate-400 text-sm mt-2">Fast, responsive websites built to convert visitors into customers.</p></div>
-      <div class="reveal glass rounded-2xl p-8 card-hover"><div class="text-3xl">&#128241;</div><h3 class="font-display text-lg font-semibold text-white mt-4">Mobile Apps</h3><p class="text-slate-400 text-sm mt-2">Native-feel apps for iOS and Android built on a single codebase.</p></div>
-      <div class="reveal glass rounded-2xl p-8 card-hover"><div class="text-3xl">&#128736;&#65039;</div><h3 class="font-display text-lg font-semibold text-white mt-4">Custom Software</h3><p class="text-slate-400 text-sm mt-2">Bespoke dashboards, internal tools and automation systems.</p></div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
+      <div class="glass rounded-xl p-5 text-center reveal"><span class="text-emerald-400 text-lg">✓</span><p class="text-slate-300 text-sm font-medium mt-1">Conversion-Focused</p></div>
+      <div class="glass rounded-xl p-5 text-center reveal"><span class="text-emerald-400 text-lg">✓</span><p class="text-slate-300 text-sm font-medium mt-1">Mobile-Optimized</p></div>
+      <div class="glass rounded-xl p-5 text-center reveal"><span class="text-emerald-400 text-lg">✓</span><p class="text-slate-300 text-sm font-medium mt-1">SEO-Ready</p></div>
+      <div class="glass rounded-xl p-5 text-center reveal"><span class="text-emerald-400 text-lg">✓</span><p class="text-slate-300 text-sm font-medium mt-1">Fast Support</p></div>
     </div>
-    <div class="text-center mt-10"><a href="services.html" class="text-[var(--brand-2)] font-semibold hover:underline">See all services &rarr;</a></div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="max-w-7xl mx-auto px-5 lg:px-8 py-16">
-    <div class="text-center max-w-2xl mx-auto">
-      <span class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-widest">How We Work</span>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">From first call to launch, in four steps</h2>
-      <p class="text-slate-400 mt-4 leading-relaxed">Every project with King Praise Web Design follows the same clear process, whether you're a law firm in Lagos or a restaurant in Abuja.</p>
-    </div>
-    <ol class="grid md:grid-cols-4 gap-6 mt-14">
-      <li class="reveal glass rounded-2xl p-6"><span class="text-[var(--brand-2)] font-display font-bold text-2xl">01</span><h3 class="font-display text-base font-semibold text-white mt-3">Discovery call</h3><p class="text-slate-400 text-sm mt-2">We learn your business, goals and target customers on a free strategy call.</p></li>
-      <li class="reveal glass rounded-2xl p-6"><span class="text-[var(--brand-2)] font-display font-bold text-2xl">02</span><h3 class="font-display text-base font-semibold text-white mt-3">Design &amp; scope</h3><p class="text-slate-400 text-sm mt-2">We map out pages, features and a fixed quote before any code is written.</p></li>
-      <li class="reveal glass rounded-2xl p-6"><span class="text-[var(--brand-2)] font-display font-bold text-2xl">03</span><h3 class="font-display text-base font-semibold text-white mt-3">Build &amp; review</h3><p class="text-slate-400 text-sm mt-2">You get staged previews as we build, with revisions along the way.</p></li>
-      <li class="reveal glass rounded-2xl p-6"><span class="text-[var(--brand-2)] font-display font-bold text-2xl">04</span><h3 class="font-display text-base font-semibold text-white mt-3">Launch &amp; support</h3><p class="text-slate-400 text-sm mt-2">We deploy your site, connect your domain, and stay on for ongoing support.</p></li>
-    </ol>
+    <div class="text-center mt-12"><a href="services.html" class="text-[var(--brand-2)] font-semibold hover:underline text-sm">Explore all services &rarr;</a></div>
   </section>
 
   <!-- FEATURED PORTFOLIO -->
@@ -256,17 +233,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div id="testimonials-track" class="flex gap-6 mt-14 overflow-x-auto px-5 lg:px-8 pb-4" style="scrollbar-width:none"></div>
   </section>
 
-  <!-- GOOGLE REVIEWS -->
-  <section id="google-reviews-section" class="max-w-7xl mx-auto px-5 lg:px-8 py-10">
-    <div class="text-center max-w-2xl mx-auto">
-      <span class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-widest">Google Business</span>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">What clients say on Google</h2>
-      <div id="google-rating-summary" class="flex items-center justify-center gap-2 mt-4"></div>
-      <a id="google-profile-link" href="#" target="_blank" class="inline-block mt-3 text-sm text-[var(--brand-2)] hover:underline">See all reviews on Google &rarr;</a>
-    </div>
-    <div id="google-reviews" class="grid md:grid-cols-3 gap-6 mt-12"></div>
-  </section>
-
   <!-- SCHEDULE A CALL -->
   <section id="schedule" class="max-w-7xl mx-auto px-5 lg:px-8 py-24">
     <div class="text-center max-w-2xl mx-auto mb-12">
@@ -282,47 +248,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- FAQ (SEO: long-tail / low-competition queries) -->
-  <section id="faq" class="max-w-4xl mx-auto px-5 lg:px-8 py-24">
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <span class="text-[var(--brand-2)] text-xs font-semibold uppercase tracking-widest">FAQ</span>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-3">Common questions about our web design services</h2>
-    </div>
-    <div class="space-y-4">
-      <details class="glass rounded-xl p-6 reveal">
-        <summary class="font-display font-semibold text-white cursor-pointer">How much does a custom website cost for a small business in Nigeria?</summary>
-        <p class="text-slate-400 text-sm mt-3">Pricing depends on scope, but our small business websites are built to be affordable without cutting corners on design or performance. See our <a href="pricing.html" class="text-[var(--brand-2)] hover:underline">pricing page</a> for exact packages, or book a free call for a custom quote.</p>
-      </details>
-      <details class="glass rounded-xl p-6 reveal">
-        <summary class="font-display font-semibold text-white cursor-pointer">Do you build websites for law firms and real estate agencies?</summary>
-        <p class="text-slate-400 text-sm mt-3">Yes &mdash; we specialize in conversion-focused websites for law firms, real estate agencies, churches and small businesses, including property listing pages, client intake forms and appointment booking.</p>
-      </details>
-      <details class="glass rounded-xl p-6 reveal">
-        <summary class="font-display font-semibold text-white cursor-pointer">Can I hire a remote web developer to build an e-commerce website?</summary>
-        <p class="text-slate-400 text-sm mt-3">Yes, we work remotely with clients worldwide and build full e-commerce stores with secure checkout, product management and mobile-optimized storefronts.</p>
-      </details>
-      <details class="glass rounded-xl p-6 reveal">
-        <summary class="font-display font-semibold text-white cursor-pointer">How long does it take to design and launch a business website?</summary>
-        <p class="text-slate-400 text-sm mt-3">Most small business websites launch within 2&ndash;4 weeks depending on complexity. Custom software and larger e-commerce builds take longer &mdash; we'll give you a clear timeline on your free call.</p>
-      </details>
-      <details class="glass rounded-xl p-6 reveal">
-        <summary class="font-display font-semibold text-white cursor-pointer">Do you offer SEO with website design so my business ranks on Google?</summary>
-        <p class="text-slate-400 text-sm mt-3">Every site we build includes on-page SEO fundamentals &mdash; clean code, fast load times, structured data and keyword-optimized content &mdash; to give you a strong foundation to rank on Google.</p>
-      </details>
-      <details class="glass rounded-xl p-6 reveal">
-        <summary class="font-display font-semibold text-white cursor-pointer">Who is King Praise Web Design built for?</summary>
-        <p class="text-slate-400 text-sm mt-3">We're a web solutions agency in Nigeria built for law firms, real estate agencies, churches, restaurants, ecommerce brands and small business owners across Lagos, Abuja and beyond who want an affordable web developer near them.</p>
-      </details>
-      <details class="glass rounded-xl p-6 reveal">
-        <summary class="font-display font-semibold text-white cursor-pointer">Do you build ecommerce websites with online payment in Nigeria?</summary>
-        <p class="text-slate-400 text-sm mt-3">Yes &mdash; we build ecommerce websites with online payment in Nigeria, including Flutterwave integration, for restaurants, food vendors and retail businesses.</p>
-      </details>
-      <details class="glass rounded-xl p-6 reveal">
-        <summary class="font-display font-semibold text-white cursor-pointer">Can I hire a full stack web developer in Nigeria for my business?</summary>
-        <p class="text-slate-400 text-sm mt-3">Yes &mdash; we work as a full stack web developer for hire in Nigeria, using the MERN stack (MongoDB, Express, React, Node.js) to build custom websites and software.</p>
-      </details>
-    </div>
-  </section>
   <section class="max-w-7xl mx-auto px-5 lg:px-8 py-10 mb-10">
     <div class="glass rounded-3xl p-12 text-center relative overflow-hidden reveal">
       <div class="glow-orb bg-[var(--brand)] w-72 h-72 -top-20 left-1/2 -translate-x-1/2"></div>

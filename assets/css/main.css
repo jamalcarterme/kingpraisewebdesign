@@ -44,11 +44,11 @@ body{
     linear-gradient(to bottom, rgba(14,21,36,0.05) 1px, transparent 1px);
 }
 [data-theme="light"] .glow-orb{ opacity:.16; }
-[data-theme="light"] .text-white{ color:#0E1524 !important; }
-[data-theme="light"] .text-slate-200{ color:#3A4354 !important; }
-[data-theme="light"] .text-slate-300{ color:#475064 !important; }
-[data-theme="light"] .text-slate-400{ color:#5B6472 !important; }
-[data-theme="light"] .text-slate-500{ color:#707A8A !important; }
+[data-theme="light"] .text-white{ color:#0E1524 !important; font-weight: 600; }
+[data-theme="light"] .text-slate-200{ color:#1F2937 !important; }
+[data-theme="light"] .text-slate-300{ color:#374151 !important; }
+[data-theme="light"] .text-slate-400{ color:#4B5563 !important; }
+[data-theme="light"] .text-slate-500{ color:#6B7280 !important; }
 [data-theme="light"] .bg-white\/5{ background:rgba(14,21,36,.045) !important; }
 [data-theme="light"] .bg-white\/10{ background:rgba(14,21,36,.07) !important; }
 [data-theme="light"] .border-white\/10{ border-color:rgba(14,21,36,.09) !important; }
@@ -73,12 +73,12 @@ body{
 #hero{
   background:
     linear-gradient(180deg, rgba(6,10,20,.68) 0%, rgba(6,10,20,.5) 45%, rgba(6,10,20,.82) 100%),
-    url('https://images.pexels.com/photos/13432327/pexels-photo-13432327.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+    url('https://images.pexels.com/photos/13432327/pexels-photo-13432327.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat; background-size: cover !important;
 }
 [data-theme="light"] #hero{
   background:
     linear-gradient(180deg, rgba(6,10,20,.68) 0%, rgba(6,10,20,.5) 45%, rgba(6,10,20,.82) 100%),
-    url('https://images.pexels.com/photos/13432327/pexels-photo-13432327.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat;
+    url('https://images.pexels.com/photos/13432327/pexels-photo-13432327.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover no-repeat; background-size: cover !important;
 }
 [data-theme="light"] #hero .text-white{ color:#fff !important; }
 [data-theme="light"] #hero .text-slate-400{ color:#DCE2EF !important; }

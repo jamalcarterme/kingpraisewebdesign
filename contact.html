@@ -75,10 +75,12 @@
     <div class="glass rounded-2xl p-8 reveal">
       <h2 class="font-display text-2xl font-semibold text-white">Send a message</h2>
       <form id="contact-form" class="mt-6 space-y-4">
-        <div><label class="form-label">Name</label><input required name="name" class="form-input"></div>
-        <div><label class="form-label">Email</label><input required type="email" name="email" class="form-input"></div>
-        <div><label class="form-label">Subject</label><input name="subject" class="form-input"></div>
-        <div><label class="form-label">Message</label><textarea required name="message" rows="5" class="form-input"></textarea></div>
+        <input type="hidden" name="access_key" value="a0229950-d9cf-46de-9e78-ef5964ef9cbb">
+        <div><label class="form-label">Name</label><input required type="text" name="name" class="form-input" placeholder="Your full name"></div>
+        <div><label class="form-label">Email</label><input required type="email" name="email" class="form-input" placeholder="your@email.com"></div>
+        <div><label class="form-label">Phone (Optional)</label><input type="tel" name="phone" class="form-input" placeholder="+234..."></div>
+        <div><label class="form-label">Subject</label><input name="subject" class="form-input" placeholder="What is this about?"></div>
+        <div><label class="form-label">Message</label><textarea required name="message" rows="5" class="form-input" placeholder="Tell us about your project..."></textarea></div>
         <button type="submit" class="btn-primary w-full py-3.5 rounded-xl">Send Message</button>
       </form>
     </div>
