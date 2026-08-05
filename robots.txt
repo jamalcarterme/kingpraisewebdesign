@@ -3,4 +3,23 @@ Allow: /
 Disallow: /admin/
 Disallow: /client/
 
+# AI answer engines — allowed for brand visibility
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://www.kingpraisewebdesign.name.ng/sitemap.xml

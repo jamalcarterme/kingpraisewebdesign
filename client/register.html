@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>(function(){try{var t=localStorage.getItem('kpwd-theme')||((window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem('kpwd-theme')||'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <style id="critical-css">body{background:#070B14;margin:0}[data-theme="light"] body{background:#fff}.page-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#070B14}[data-theme="light"] .page-loader{background:#fff}</style>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Create Client Account &mdash; King Praise Web Design</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="../assets/img/favicon.png">
 <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
 <link rel="stylesheet" href="../assets/css/tailwind.css">
 <link rel="stylesheet" href="../assets/css/main.css">
 </head>
-<body class="bg-grid min-h-screen">
+<body>
 <div id="page-loader" class="page-loader">
   <div class="loader-stage">
     <img src="../assets/img/logo-icon.png" alt="Loading" class="loader-logo">
@@ -23,28 +24,81 @@
   </div>
 </div>
 
-<div id="site-header"></div>
-<main class="min-h-screen flex items-center justify-center px-5 pt-24 pb-10">
-  <div class="glass rounded-2xl p-8 w-full max-w-md reveal in">
-    <div class="text-center mb-6">
-      <img src="../assets/img/logo-icon.png" alt="King Praise Web Design" class="logo-icon mx-auto">
-      <h1 class="font-display text-2xl font-bold text-white mt-3">Create Your Account</h1>
-      <p class="text-slate-400 text-sm mt-1">Track your project milestones in one place</p>
+<button class="theme-toggle fixed top-5 right-5 z-50" data-theme-toggle aria-label="Toggle dark / light mode">
+  <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+  <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+</button>
+
+<div class="auth-shell">
+  <aside class="auth-aside">
+    <img src="../assets/img/logo-icon.png" alt="King Praise Web Design" class="logo-icon">
+    <div>
+      <p class="auth-eyebrow">Client Portal</p>
+      <p class="auth-quote">One place for every <em>milestone</em>, file and update.</p>
+      <ul class="auth-points">
+        <li><span>&#10003;</span> Real-time project progress</li>
+        <li><span>&#10003;</span> Secure document and invoice access</li>
+        <li><span>&#10003;</span> Free to create, takes under a minute</li>
+      </ul>
     </div>
-    <form id="client-register-form" class="space-y-4">
-      <div><label class="form-label">Full Name</label><input required name="name" class="form-input"></div>
-      <div><label class="form-label">Email</label><input required type="email" name="email" class="form-input"></div>
-      <div><label class="form-label">Password</label><input required type="password" minlength="6" name="password" class="form-input"></div>
-      <div class="grid grid-cols-2 gap-3">
-        <div><label class="form-label">Phone</label><input name="phone" class="form-input"></div>
-        <div><label class="form-label">Country</label><input name="country" class="form-input"></div>
-      </div>
-      <div><label class="form-label">Company (optional)</label><input name="company" class="form-input"></div>
-      <button type="submit" class="btn-primary w-full py-3 rounded-xl">Create Account</button>
-    </form>
-    <p class="text-center text-sm text-slate-400 mt-6">Already have an account? <a href="login.html" class="text-[var(--brand-2)] hover:underline">Sign in</a></p>
-  </div>
-</main>
+    <p class="auth-eyebrow">&copy; King Praise Web Design</p>
+  </aside>
+
+  <main class="auth-main">
+    <div class="auth-card">
+      <span class="auth-badge">Get Started</span>
+      <h1>Create your account</h1>
+      <p class="auth-sub">Track your project milestones in one place.</p>
+
+      <form id="client-register-form" novalidate>
+        <div class="auth-field">
+          <label for="reg-name">Full name</label>
+          <input id="reg-name" required name="name" autocomplete="name" placeholder="Jane Doe">
+        </div>
+        <div class="auth-field">
+          <label for="reg-email">Email address</label>
+          <input id="reg-email" required type="email" name="email" autocomplete="email" placeholder="you@company.com">
+        </div>
+        <div class="auth-field has-toggle">
+          <label for="reg-password">Password</label>
+          <input id="reg-password" required type="password" minlength="6" name="password" autocomplete="new-password" placeholder="At least 6 characters">
+          <button type="button" class="auth-toggle" data-toggle-password="reg-password">Show</button>
+        </div>
+        <div class="auth-row">
+          <div class="auth-field">
+            <label for="reg-phone">Phone</label>
+            <input id="reg-phone" name="phone" type="tel" autocomplete="tel" placeholder="+234 000 000 0000">
+          </div>
+          <div class="auth-field">
+            <label for="reg-country">Country</label>
+            <input id="reg-country" name="country" autocomplete="country-name" placeholder="Nigeria">
+          </div>
+        </div>
+        <div class="auth-field">
+          <label for="reg-company">Company <span style="text-transform:none;font-weight:500">(optional)</span></label>
+          <input id="reg-company" name="company" autocomplete="organization" placeholder="Your business name">
+        </div>
+        <button type="submit" class="auth-submit">Create Account</button>
+      </form>
+
+      <p class="auth-meta">Already have an account? <a href="login.html">Sign in</a></p>
+      <div class="auth-divider"></div>
+      <p class="auth-meta"><a href="../index.html" class="auth-back">&larr; Back to website</a></p>
+    </div>
+  </main>
+</div>
+
+<script>
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('[data-toggle-password]');
+  if (!btn) return;
+  const input = document.getElementById(btn.getAttribute('data-toggle-password'));
+  if (!input) return;
+  const show = input.type === 'password';
+  input.type = show ? 'text' : 'password';
+  btn.textContent = show ? 'Hide' : 'Show';
+});
+</script>
 <script src="../assets/js/config.js"></script>
 <script src="../assets/js/api.js"></script>
 <script src="../assets/js/ui.js"></script>
