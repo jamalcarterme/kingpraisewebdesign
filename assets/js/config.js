@@ -1,6 +1,5 @@
 // Global site configuration
 window.KPWD = {
-  API_BASE: 'https://kingpraisewebdesign-backend.onrender.com/api',
   SITE_URL: 'https://www.kingpraisewebdesign.name.ng',
   EMAIL: 'kingpraisewebdesign@gmail.com',
   PHONE_NG: '+2349030232048',

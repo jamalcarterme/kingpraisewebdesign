@@ -56,11 +56,11 @@
         return `
       <div class="relative group">
         <a href="${root}services.html" class="nav-link text-sm font-medium ${(cur === 'services.html' || svcActive) && root === '' ? 'active text-white' : 'text-slate-300'} hover:text-white transition inline-flex items-center gap-1">Services
-          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <svg class="w-3 h-3 transition-transform group-hover:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </a>
-        <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
-          <div class="glass rounded-xl p-2 min-w-[240px]">
-            ${serviceLinks.map(s => `<a href="${root}${s.href}" class="block px-3 py-2 rounded-lg text-sm ${cur === s.href ? 'text-white bg-white/5' : 'text-slate-300'} hover:text-white hover:bg-white/5 transition">${s.label}</a>`).join('')}
+        <div class="absolute left-0 top-full pt-3 hidden group-hover:block group-hover:opacity-100 group-hover:visible z-50 transition-all duration-200">
+          <div class="glass rounded-xl p-2 min-w-[240px] shadow-lg border border-white/10">
+            ${serviceLinks.map(s => `<a href="${root}${s.href}" class="mobile-menu-item block px-4 py-3 rounded-lg text-sm ${cur === s.href ? 'text-white bg-gradient-to-r from-white/10 to-white/5' : 'text-slate-300'} hover:text-white hover:bg-white/5 transition">${s.label}</a>`).join('')}
           </div>
         </div>
       </div>`;
@@ -69,11 +69,11 @@
         return `
       <div class="relative group">
         <a href="${root}web-design-lagos.html" class="nav-link text-sm font-medium ${locActive && root === '' ? 'active text-white' : 'text-slate-300'} hover:text-white transition inline-flex items-center gap-1">Locations
-          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          <svg class="w-3 h-3 transition-transform group-hover:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
         </a>
-        <div class="absolute left-0 top-full pt-3 hidden group-hover:block">
-          <div class="glass rounded-xl p-2 min-w-[200px]">
-            ${locationLinks.map(s => `<a href="${root}${s.href}" class="block px-3 py-2 rounded-lg text-sm ${cur === s.href ? 'text-white bg-white/5' : 'text-slate-300'} hover:text-white hover:bg-white/5 transition">${s.label}</a>`).join('')}
+        <div class="absolute left-0 top-full pt-3 hidden group-hover:block group-hover:opacity-100 group-hover:visible z-50 transition-all duration-200">
+          <div class="glass rounded-xl p-2 min-w-[200px] shadow-lg border border-white/10">
+            ${locationLinks.map(s => `<a href="${root}${s.href}" class="mobile-menu-item block px-4 py-3 rounded-lg text-sm ${cur === s.href ? 'text-white bg-gradient-to-r from-white/10 to-white/5' : 'text-slate-300'} hover:text-white hover:bg-white/5 transition">${s.label}</a>`).join('')}
           </div>
         </div>
       </div>`;
@@ -170,14 +170,7 @@
           </ul>
         </div>
       </div>
-      <div class="border-t border-white/10 py-5 text-center text-xs text-slate-500">
-        <span class="tracking-wide uppercase text-slate-600">Verified on:</span>
-        <a href="https://maps.app.goo.gl/NithCM7diA8q4Fgn6" target="_blank" rel="noopener" class="hover:text-white transition ml-2">Google Business Profile</a>
-        <span class="mx-1">&middot;</span>
-        <a href="https://www.goodfirms.co/company/king-praise-web-design" target="_blank" rel="noopener" class="hover:text-white transition">GoodFirms</a>
-        <span class="mx-1">&middot;</span>
-        <a href="https://destinali.com/lagos/digital-agencies-tech/king-praise-web-design-lagos" target="_blank" rel="noopener" class="hover:text-white transition">Destinali</a>
-      </div>
+
       <div class="border-t border-white/10 py-6 text-center text-xs text-slate-500">
         &copy; <span id="copyright-year"></span> King Praise Web Design. All rights reserved.
       </div>
