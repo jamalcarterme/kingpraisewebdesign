@@ -138,7 +138,7 @@
             <img src="${root}assets/img/logo-icon.png" alt="King Praise Web Design" class="logo-icon">
             <span class="font-display font-semibold text-white">King Praise <span class="text-gradient">Web Design</span></span>
           </div>
-          <p class="text-slate-400 text-sm leading-relaxed">Premium websites, apps and digital products engineered for growth &mdash; built remotely, delivered globally.</p>
+          <p class="text-slate-400 text-sm leading-relaxed">Premium websites, e-commerce and custom software built as one system for growth &mdash; no cookie-cutter templates, no corporate fluff.</p>
         </div>
         <div>
           <h4 class="font-display font-semibold text-white mb-4 text-sm tracking-wide uppercase">Company</h4>
