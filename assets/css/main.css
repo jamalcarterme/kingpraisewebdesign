@@ -836,3 +836,46 @@ a:focus-visible, button:focus-visible{
     width:100%;
   }
 }
+
+/* ===== Image-based Cards ===== */
+.glass img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.glass.rounded-2xl img{
+  border-radius:.5rem .5rem 0 0;
+  object-fit:cover;
+  aspect-ratio:16/9;
+}
+.glass.card-hover img{
+  transition:transform .4s cubic-bezier(.16,.1,.3,1), filter .3s ease;
+}
+.glass.card-hover:hover img{
+  transform:scale(1.08);
+  filter:brightness(.9);
+}
+[data-theme="light"] .glass.card-hover:hover img{
+  filter:brightness(.95);
+}
+
+/* Image + text card layout */
+.glass.rounded-2xl.overflow-hidden{
+  display:flex;
+  flex-direction:column;
+}
+.glass.rounded-2xl.overflow-hidden > div{
+  flex:1;
+}
+
+/* Responsive image heights */
+@media (max-width:640px){
+  .glass.rounded-2xl img{
+    aspect-ratio:16/10;
+  }
+}
+
+/* Image fade-in on load */
+img{
+  animation:fadeInUp .5s ease-out;
+}
