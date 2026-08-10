@@ -837,25 +837,29 @@ a:focus-visible, button:focus-visible{
   }
 }
 
-/* ===== Image-based Cards ===== */
-.glass img{
+/* ===== Image-based Cards =====
+   Scoped away from .logo-icon / .loader-logo: without the :not() exclusions
+   these generic rules also matched the header logo (it sits inside a
+   .glass.rounded-2xl container), forcing it to width:100% with a 16:9 crop
+   and blowing it up over the nav. */
+.glass img:not(.logo-icon):not(.loader-logo){
   display:block;
   width:100%;
   height:auto;
 }
-.glass.rounded-2xl img{
+.glass.rounded-2xl img:not(.logo-icon):not(.loader-logo){
   border-radius:.5rem .5rem 0 0;
   object-fit:cover;
   aspect-ratio:16/9;
 }
-.glass.card-hover img{
+.glass.card-hover img:not(.logo-icon):not(.loader-logo){
   transition:transform .4s cubic-bezier(.16,.1,.3,1), filter .3s ease;
 }
-.glass.card-hover:hover img{
+.glass.card-hover:hover img:not(.logo-icon):not(.loader-logo){
   transform:scale(1.08);
   filter:brightness(.9);
 }
-[data-theme="light"] .glass.card-hover:hover img{
+[data-theme="light"] .glass.card-hover:hover img:not(.logo-icon):not(.loader-logo){
   filter:brightness(.95);
 }
 
