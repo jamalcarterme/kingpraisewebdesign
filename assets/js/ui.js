@@ -138,7 +138,7 @@
             <img src="${root}assets/img/logo-icon.png" alt="King Praise Web Design" class="logo-icon">
             <span class="font-display font-semibold text-white">King Praise <span class="text-gradient">Web Design</span></span>
           </div>
-          <p class="text-slate-400 text-sm leading-relaxed">Premium websites, e-commerce and custom software built as one system for growth &mdash; no cookie-cutter templates, no corporate fluff.</p>
+          <p class="text-slate-400 text-sm leading-relaxed">Premium websites, e-commerce and custom software built as one system for growth, with no cookie-cutter templates and no corporate fluff.</p>
         </div>
         <div>
           <h4 class="font-display font-semibold text-white mb-4 text-sm tracking-wide uppercase">Company</h4>
@@ -166,7 +166,7 @@
             <li><a href="mailto:kingpraisewebdesign@gmail.com" class="hover:text-white transition">kingpraisewebdesign@gmail.com</a></li>
             <li><a href="https://wa.me/2349030232048" target="_blank" class="hover:text-white transition">+234 903 023 2048 (NG/WhatsApp)</a></li>
             <li><a href="tel:+16507064845" class="hover:text-white transition">+1 650-706-4845 (US)</a></li>
-            <li class="text-slate-500">Remote Company &mdash; Global Delivery</li>
+            <li class="text-slate-500">Remote Company, Global Delivery</li>
           </ul>
         </div>
       </div>
@@ -294,7 +294,7 @@
   window.addEventListener('load', () => {
     setTimeout(hidePageLoader, 250);
   });
-  // Guaranteed fallback in case the load event or ui.js itself is delayed/blocked —
+  // Guaranteed fallback in case the load event or ui.js itself is delayed/blocked ,
   // the CSS animation on .page-loader also self-dismisses independently after 3.2s.
   setTimeout(hidePageLoader, 1800);
 })();

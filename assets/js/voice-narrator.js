@@ -1,4 +1,4 @@
-// Voice Narrator — reads page content aloud using the browser's built-in
+// Voice Narrator, reads page content aloud using the browser's built-in
 // Web Speech API (free, no backend, no API key). Lives on every public
 // marketing page (not admin/client auth pages).
 (function () {
@@ -102,7 +102,7 @@
 
   function startKeepAlive() {
     // Chunking utterances (see splitIntoChunks) removes the need for the old
-    // "pause immediately followed by resume" trick — calling pause() and
+    // "pause immediately followed by resume" trick, calling pause() and
     // resume() back-to-back with no gap is itself a known way to make Chrome
     // silently drop the rest of the speech queue, which was likely
     // contributing to playback dying partway through. Instead we run a
@@ -116,7 +116,7 @@
       if (state !== 'speaking') return;
       if (idx !== lastIdx) { lastIdx = idx; stalledTicks = 0; return; }
       if (window.speechSynthesis.speaking || window.speechSynthesis.pending) { stalledTicks = 0; return; }
-      // Nothing playing, nothing pending, but we think we're still speaking — stalled.
+      // Nothing playing, nothing pending, but we think we're still speaking, stalled.
       stalledTicks += 1;
       if (stalledTicks >= 1) {
         stalledTicks = 0;
@@ -211,7 +211,7 @@
     iconPause.style.display = speaking ? 'block' : 'none';
     fab.classList.toggle('speaking', speaking);
     stopBtn.classList.toggle('show', state !== 'idle');
-    label.textContent = state === 'speaking' ? 'Reading page…' : state === 'paused' ? 'Paused — tap to resume' : 'Read this page aloud';
+    label.textContent = state === 'speaking' ? 'Reading page…' : state === 'paused' ? 'Paused, tap to resume' : 'Read this page aloud';
   }
 
   let labelTimer = null;
