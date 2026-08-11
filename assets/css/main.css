@@ -842,26 +842,29 @@ a:focus-visible, button:focus-visible{
    these generic rules also matched the header logo (it sits inside a
    .glass.rounded-2xl container), forcing it to width:100% with a 16:9 crop
    and blowing it up over the nav. */
-.glass img:not(.logo-icon):not(.loader-logo){
+.glass img:not(.logo-icon):not(.loader-logo):not(.avatar){
   display:block;
   width:100%;
   height:auto;
 }
-.glass.rounded-2xl img:not(.logo-icon):not(.loader-logo){
+.glass.rounded-2xl img:not(.logo-icon):not(.loader-logo):not(.avatar){
   border-radius:.5rem .5rem 0 0;
   object-fit:cover;
   aspect-ratio:16/9;
 }
-.glass.card-hover img:not(.logo-icon):not(.loader-logo){
+.glass.card-hover img:not(.logo-icon):not(.loader-logo):not(.avatar){
   transition:transform .4s cubic-bezier(.16,.1,.3,1), filter .3s ease;
 }
-.glass.card-hover:hover img:not(.logo-icon):not(.loader-logo){
+.glass.card-hover:hover img:not(.logo-icon):not(.loader-logo):not(.avatar){
   transform:scale(1.08);
   filter:brightness(.9);
 }
-[data-theme="light"] .glass.card-hover:hover img:not(.logo-icon):not(.loader-logo){
+[data-theme="light"] .glass.card-hover:hover img:not(.logo-icon):not(.loader-logo):not(.avatar){
   filter:brightness(.95);
 }
+/* Avatars (team/testimonial/review profile photos) are excluded above so their
+   own w-*/h-*/rounded-full utility classes control size, keeping them as normal
+   circular profile photos instead of full-width card images. */
 
 /* Image + text card layout */
 .glass.rounded-2xl.overflow-hidden{
@@ -874,7 +877,7 @@ a:focus-visible, button:focus-visible{
 
 /* Responsive image heights */
 @media (max-width:640px){
-  .glass.rounded-2xl img{
+  .glass.rounded-2xl img:not(.avatar){
     aspect-ratio:16/10;
   }
 }

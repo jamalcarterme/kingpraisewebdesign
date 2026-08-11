@@ -195,7 +195,7 @@
       const list = data.team || data.data || [];
       body.innerHTML = list.length ? list.map(m => `
         <tr>
-          <td><img src="${m.photo?.url || ''}" class="w-12 h-12 rounded-full object-cover bg-[var(--surface-2)]" onerror="this.style.display='none'"></td>
+          <td><img src="${m.photo?.url || ''}" class="avatar w-12 h-12 rounded-full object-cover bg-[var(--surface-2)]" onerror="this.style.display='none'"></td>
           <td class="text-white font-medium">${m.name}</td>
           <td>${m.role}</td>
           <td><span class="badge ${m.isActive !== false ? 'bg-emerald-500/20 text-emerald-300' : 'bg-slate-500/20 text-slate-300'}">${m.isActive !== false ? 'Active' : 'Hidden'}</span></td>

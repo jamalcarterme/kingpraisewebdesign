@@ -86,7 +86,7 @@
         <div class="mt-3 glass rounded-2xl flex items-center justify-between px-5 py-3">
           <a href="${root}index.html" class="flex items-center gap-2 group">
             <img src="${root}assets/img/logo-icon.png" alt="King Praise Web Design" class="logo-icon">
-            <span class="font-display font-semibold tracking-tight text-white text-lg hidden sm:inline">King Praise <span class="text-gradient">Web Design</span></span>
+            <span class="font-display font-semibold tracking-tight text-lg hidden sm:inline" style="color:var(--text)">King Praise <span class="text-gradient">Web Design</span></span>
           </a>
           <nav class="hidden lg:flex items-center gap-7">${links}</nav>
           <div class="hidden lg:flex items-center gap-3">
@@ -136,7 +136,7 @@
         <div>
           <div class="flex items-center gap-2 mb-4">
             <img src="${root}assets/img/logo-icon.png" alt="King Praise Web Design" class="logo-icon">
-            <span class="font-display font-semibold text-white">King Praise <span class="text-gradient">Web Design</span></span>
+            <span class="font-display font-semibold" style="color:var(--text)">King Praise <span class="text-gradient">Web Design</span></span>
           </div>
           <p class="text-slate-400 text-sm leading-relaxed">Premium websites, e-commerce and custom software built as one system for growth, with no cookie-cutter templates and no corporate fluff.</p>
         </div>
