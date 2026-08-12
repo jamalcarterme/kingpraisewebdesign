@@ -38,14 +38,6 @@
     return window.location.pathname.includes('/client/') || window.location.pathname.includes('/admin/') ? '../' : '';
   }
 
-  function themeToggleHTML(extraClass) {
-    return `
-    <button class="theme-toggle ${extraClass || ''}" data-theme-toggle aria-label="Toggle dark / light mode">
-      <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-      <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    </button>`;
-  }
-
   function headerHTML() {
     const root = rootPrefix();
     const cur = currentFile();
@@ -90,12 +82,10 @@
           </a>
           <nav class="hidden lg:flex items-center gap-7">${links}</nav>
           <div class="hidden lg:flex items-center gap-3">
-            ${themeToggleHTML()}
             <a href="${root}client/login.html" class="btn-ghost text-sm px-4 py-2 rounded-lg">Client Login</a>
             <a href="${root}contact.html#schedule" class="btn-primary text-sm px-4 py-2 rounded-lg">Book a Call</a>
           </div>
           <div class="flex items-center gap-2 lg:hidden">
-            ${themeToggleHTML()}
             <button id="menu-btn" class="text-white p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
@@ -131,7 +121,7 @@
   function footerHTML() {
     const root = rootPrefix();
     return `
-    <footer class="border-t border-white/10 mt-24 bg-[#050810]">
+    <footer class="border-t border-white/10 mt-24" style="background:var(--surface)">
       <div class="max-w-7xl mx-auto px-5 lg:px-8 py-14 grid md:grid-cols-4 gap-10">
         <div>
           <div class="flex items-center gap-2 mb-4">
@@ -179,34 +169,19 @@
 
   const THEME_KEY = 'kpwd-theme';
 
-  function getTheme() {
-    try { return localStorage.getItem(THEME_KEY); } catch (e) { return null; }
-  }
-
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
   }
 
-  function setTheme(theme) {
-    applyTheme(theme);
-    try { localStorage.setItem(THEME_KEY, theme); } catch (e) { /* ignore */ }
-  }
-
   function initTheme() {
-    let theme = getTheme();
-    if (!theme) {
-      theme = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
-    }
-    applyTheme(theme);
+    applyTheme('light');
   }
 
-  function bindThemeToggles() {
-    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-        setTheme(current === 'light' ? 'dark' : 'light');
-      });
-    });
+  function whatsappHTML() {
+    return `
+    <a href="https://wa.me/2349030232048" target="_blank" rel="noopener" class="wa-float" aria-label="Chat with us on WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="28" height="28"><path d="M16.004 3C9.377 3 4 8.373 4 15c0 2.386.7 4.607 1.91 6.47L4 29l7.72-1.87A11.94 11.94 0 0016.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3zm0 21.8c-2.02 0-3.9-.57-5.5-1.56l-.394-.24-4.583 1.11 1.15-4.47-.256-.41A9.77 9.77 0 016.2 15c0-5.41 4.395-9.8 9.804-9.8 5.41 0 9.8 4.39 9.8 9.8 0 5.41-4.39 9.8-9.8 9.8zm5.37-7.34c-.29-.145-1.727-.852-1.995-.95-.267-.098-.462-.145-.657.146-.194.29-.755.95-.926 1.145-.17.194-.34.218-.63.073-.29-.146-1.224-.451-2.332-1.437-.862-.768-1.444-1.716-1.613-2.007-.17-.29-.018-.447.128-.591.13-.13.29-.34.435-.51.146-.17.194-.29.29-.485.097-.194.049-.364-.024-.51-.073-.145-.657-1.584-.9-2.169-.237-.568-.478-.49-.657-.5-.17-.008-.364-.01-.559-.01-.194 0-.51.073-.777.364-.267.29-1.02 1-1.02 2.436s1.045 2.824 1.19 3.02c.146.194 2.057 3.14 4.985 4.404.696.3 1.24.48 1.663.615.699.222 1.335.19 1.838.115.56-.084 1.727-.706 1.97-1.388.243-.681.243-1.266.17-1.388-.073-.122-.267-.194-.558-.34z"/></svg>
+    </a>`;
   }
 
   function mountChrome() {
@@ -251,7 +226,12 @@
       menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
     }
-    bindThemeToggles();
+    if (!document.getElementById('wa-float-btn') && !document.body.classList.contains('no-wa-float')) {
+      const wa = document.createElement('div');
+      wa.id = 'wa-float-btn';
+      wa.innerHTML = whatsappHTML();
+      document.body.appendChild(wa);
+    }
   }
 
   function initReveal() {
@@ -283,7 +263,7 @@
     setTimeout(() => loader.remove(), 500);
   }
 
-  window.KPWD_UI = { mountChrome, initReveal, toast, rootPrefix, setTheme, getTheme, initTheme, hidePageLoader };
+  window.KPWD_UI = { mountChrome, initReveal, toast, rootPrefix, initTheme, hidePageLoader };
 
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
