@@ -862,3 +862,26 @@ img{
 }
 .wa-float:hover{ transform:translateY(-3px) scale(1.05); box-shadow:0 16px 36px -8px rgba(0,0,0,.4); }
 @media (max-width:640px){ .wa-float{ right:1rem; bottom:1rem; width:52px; height:52px; } }
+
+/* ===== Final authoritative CTA button styling: brand gold primary/secondary ===== */
+.btn-primary{
+  background:linear-gradient(90deg,var(--brand),var(--brand-3)) !important;
+  color:#1A1200 !important;
+  border-color:var(--brand) !important;
+  box-shadow:0 10px 26px -10px rgba(255,184,12,.55) !important;
+}
+.btn-primary:hover{
+  background:linear-gradient(90deg,var(--brand-2),var(--brand)) !important;
+  border-color:var(--brand-2) !important;
+  box-shadow:0 16px 34px -12px rgba(255,184,12,.7) !important;
+  transform:translateY(-2px);
+}
+.btn-ghost{
+  background:transparent !important;
+  border-color:var(--brand-3) !important;
+  color:var(--text) !important;
+}
+.btn-ghost:hover{
+  background:rgba(255,184,12,.1) !important;
+  border-color:var(--brand) !important;
+}
