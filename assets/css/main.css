@@ -503,7 +503,6 @@ img{ }
 /* Reading rhythm */
 body{ letter-spacing:0.005em; }
 p{ line-height:1.72; }
-[data-theme="light"] .text-\[var\(--brand-2\)\]{ color:#0B8F87; }
 [data-theme="dark"] #hero .btn-ghost{ background:transparent !important; border-color:rgba(255,255,255,.22) !important; color:#EDF0F6 !important; }
 [data-theme="dark"] #hero .btn-ghost:hover{ background:rgba(255,255,255,.08) !important; border-color:rgba(255,255,255,.45) !important; }
 
@@ -514,7 +513,7 @@ p{ line-height:1.72; }
 
 :root{
   --ink:#08090C;
-  --accent:#1B44E8;
+  --accent:#FFB80C;
   --hairline:rgba(8,9,12,.08);
   --ease-lux:cubic-bezier(.16,1,.3,1);
 }
