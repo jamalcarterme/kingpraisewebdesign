@@ -798,24 +798,29 @@ a:focus-visible, button:focus-visible{
 }
 
 /* Fix: the full desktop nav (8 links incl. 2 dropdowns) plus the "Client
-   Login" / "Book a Call" buttons needs ~1150-1250px to sit comfortably.
-   Tailwind's "lg" breakpoint (1024px) switched to it far too early, so on
-   real laptop screens (1024-1365px wide - the most common "desktop"
-   sizes) the header overflowed/overlapped. Keep the compact hamburger
-   menu through that range and only reveal the full nav once there's
-   enough width for it. Selectors are scoped to #site-header and walk the
-   header's actual DOM order (logo -> nav -> auth buttons -> hamburger)
-   so nothing outside the header (e.g. the admin dashboard's own <nav>)
-   is affected. */
-@media (min-width:1024px) and (max-width:1365.98px){
+   Login" / "Book a Call" buttons needs ~1150-1250px at full size, but most
+   real laptop screens (1024-1365px wide) ARE "desktop" and should show the
+   real nav, not the mobile hamburger. Only fall back to the hamburger below
+   1180px, where even a compacted nav won't fit; between 1180-1365px, show
+   the real nav but compact the spacing/font-size so it fits without
+   overflowing. Selectors are scoped to #site-header and walk the header's
+   actual DOM order (logo -> nav -> auth buttons -> hamburger) so nothing
+   outside the header (e.g. the admin dashboard's own <nav>) is affected. */
+@media (min-width:1024px) and (max-width:1179.98px){
   #site-header nav{ display:none !important; }
   #site-header nav + div{ display:none !important; }
   #site-header nav + div + div{ display:flex !important; }
 }
-@media (min-width:1366px){
+@media (min-width:1180px){
   #site-header nav{ display:flex !important; }
   #site-header nav + div{ display:flex !important; }
   #site-header nav + div + div{ display:none !important; }
+}
+@media (min-width:1180px) and (max-width:1365.98px){
+  #site-header nav{ gap:1rem; }
+  #site-header .nav-link{ padding:0.35rem 0.5rem; font-size:0.8125rem; }
+  #site-header nav + div{ gap:0.5rem; }
+  #site-header nav + div a{ padding-left:0.75rem; padding-right:0.75rem; font-size:0.8125rem; }
 }
 
 /* ===== Image-based Cards =====
