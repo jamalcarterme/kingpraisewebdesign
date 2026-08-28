@@ -778,9 +778,6 @@ a:focus-visible, button:focus-visible{
 
 /* Desktop responsiveness - prevent nav slug */
 @media (min-width:1024px){
-  nav{
-    display:flex !important;
-  }
   .nav-link{
     position:relative;
     padding:0.4rem 0.8rem;
@@ -798,6 +795,27 @@ a:focus-visible, button:focus-visible{
   .nav-link:hover::after, .nav-link.active::after{
     width:100%;
   }
+}
+
+/* Fix: the full desktop nav (8 links incl. 2 dropdowns) plus the "Client
+   Login" / "Book a Call" buttons needs ~1150-1250px to sit comfortably.
+   Tailwind's "lg" breakpoint (1024px) switched to it far too early, so on
+   real laptop screens (1024-1365px wide - the most common "desktop"
+   sizes) the header overflowed/overlapped. Keep the compact hamburger
+   menu through that range and only reveal the full nav once there's
+   enough width for it. Selectors are scoped to #site-header and walk the
+   header's actual DOM order (logo -> nav -> auth buttons -> hamburger)
+   so nothing outside the header (e.g. the admin dashboard's own <nav>)
+   is affected. */
+@media (min-width:1024px) and (max-width:1365.98px){
+  #site-header nav{ display:none !important; }
+  #site-header nav + div{ display:none !important; }
+  #site-header nav + div + div{ display:flex !important; }
+}
+@media (min-width:1366px){
+  #site-header nav{ display:flex !important; }
+  #site-header nav + div{ display:flex !important; }
+  #site-header nav + div + div{ display:none !important; }
 }
 
 /* ===== Image-based Cards =====
