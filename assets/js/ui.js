@@ -75,15 +75,15 @@
     return `
     <header class="fixed top-0 inset-x-0 z-50">
       <div class="mx-auto max-w-7xl px-5 lg:px-8">
-        <div class="mt-3 glass rounded-2xl flex items-center justify-between px-5 py-3">
-          <a href="${root}index.html" class="flex items-center gap-2 group">
+        <div class="mt-3 glass rounded-2xl flex items-center justify-between gap-3 px-5 py-3">
+          <a href="${root}index.html" class="flex items-center gap-2 group flex-shrink-0">
             <img src="${root}assets/img/logo-icon.png" alt="King Praise Web Design" class="logo-icon">
-            <span class="font-display font-semibold tracking-tight text-lg hidden sm:inline" style="color:var(--text)">King Praise <span class="text-gradient">Web Design</span></span>
+            <span class="font-display font-semibold tracking-tight text-lg hidden sm:inline lg:hidden xl:inline whitespace-nowrap" style="color:var(--text)">King Praise <span class="text-gradient">Web Design</span></span>
           </a>
-          <nav class="hidden lg:flex items-center gap-7">${links}</nav>
-          <div class="hidden lg:flex items-center gap-3">
-            <a href="${root}client/login.html" class="btn-ghost text-sm px-4 py-2 rounded-lg">Client Login</a>
-            <a href="${root}contact.html#schedule" class="btn-primary text-sm px-4 py-2 rounded-lg">Book a Call</a>
+          <nav class="hidden lg:flex items-center gap-4 xl:gap-7 whitespace-nowrap">${links}</nav>
+          <div class="hidden lg:flex items-center gap-2 xl:gap-3 flex-shrink-0">
+            <a href="${root}client/login.html" class="btn-ghost text-sm px-3 xl:px-4 py-2 rounded-lg whitespace-nowrap">Client Login</a>
+            <a href="${root}contact.html#schedule" class="btn-primary text-sm px-3 xl:px-4 py-2 rounded-lg whitespace-nowrap">Book a Call</a>
           </div>
           <div class="flex items-center gap-2 lg:hidden">
             <button id="menu-btn" class="text-white p-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
