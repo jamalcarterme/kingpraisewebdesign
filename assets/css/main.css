@@ -198,9 +198,44 @@ body{
   background:linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.015));
   border:1px solid var(--border);
   backdrop-filter: blur(6px);
+  box-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 30px 60px -35px rgba(0,0,0,.6);
 }
-.card-hover{transition:transform .35s ease, border-color .35s ease, box-shadow .35s ease;}
-.card-hover:hover{transform:translateY(-6px); border-color:rgba(255,184,12,.55); box-shadow:0 20px 60px -20px rgba(255,184,12,.35);}
+.card-hover{transition:transform .35s cubic-bezier(.2,.8,.2,1), border-color .35s ease, box-shadow .35s ease;}
+.card-hover:hover{transform:translateY(-6px); border-color:rgba(255,184,12,.55); box-shadow:0 24px 64px -22px rgba(255,184,12,.32);}
+
+/* Pill / chip (stat badges, eyebrow tags) */
+.chip{
+  display:inline-flex; align-items:center; gap:.5rem;
+  border:1px solid var(--border); background:rgba(255,255,255,.03);
+  padding:.5rem 1rem; border-radius:9999px; font-size:.8rem; color:var(--muted);
+}
+.chip .dot{width:6px; height:6px; border-radius:50%; background:var(--brand-2); box-shadow:0 0 10px var(--brand-2);}
+[data-theme="light"] .chip{background:rgba(255,184,12,.06);}
+
+/* Hero stat row */
+.stat-row{display:flex; flex-wrap:wrap; gap:1.75rem 2.5rem;}
+.stat-row .stat b{display:block; font-family:'Space Grotesk',sans-serif; font-size:1.5rem; font-weight:700; color:#fff;}
+.stat-row .stat span{display:block; font-size:.75rem; color:#DCE2EF; margin-top:.15rem;}
+
+/* Price tag on service cards */
+.price-tag{
+  display:inline-block; margin-top:.9rem; font-size:.78rem; font-weight:600;
+  color:var(--brand-2); letter-spacing:.01em;
+}
+
+/* Process step number */
+.step-num{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:2.75rem; height:2.75rem; border-radius:9999px; flex-shrink:0;
+  font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:1.05rem;
+  background:linear-gradient(135deg, rgba(255,184,12,.16), rgba(255,184,12,.03));
+  border:1px solid rgba(255,184,12,.35); color:var(--brand-2);
+}
+.step-connector{
+  position:absolute; top:1.375rem; left:2.75rem; right:-1.5rem; height:1px;
+  background:linear-gradient(90deg, rgba(255,184,12,.35), transparent);
+}
+@media (max-width:1023px){ .step-connector{display:none;} }
 
 /* Buttons */
 .btn-primary{
