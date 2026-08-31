@@ -12,6 +12,15 @@
   ];
 
   const serviceLinks = [
+    { href: 'web-design-company-lagos.html', label: 'Web Design Company Lagos' },
+    { href: 'website-designer-lagos.html', label: 'Website Designer Lagos' },
+    { href: 'web-design-agency-lagos.html', label: 'Web Design Agency Lagos' },
+    { href: 'website-designer-victoria-island.html', label: 'Website Designer Victoria Island' },
+    { href: 'web-design-company-nigeria.html', label: 'Web Design Company Nigeria' },
+    { href: 'website-design-company-nigeria.html', label: 'Website Design Company Nigeria' },
+    { href: 'ecommerce-developer-nigeria.html', label: 'E-Commerce Developer Nigeria' },
+    { href: 'corporate-website-designer-lagos.html', label: 'Corporate Website Designer' },
+    { href: 'website-design-logistics.html', label: 'Website Design - Logistics' },
     { href: 'web-design-for-law-firms.html', label: 'Web Design for Law Firms' },
     { href: 'real-estate-website-design.html', label: 'Real Estate Website Design' },
     { href: 'restaurant-website-design.html', label: 'Restaurant Website Design' },
@@ -22,7 +31,8 @@
   ];
 
   const locationLinks = [
-    { href: 'web-design-lagos.html', label: 'Lagos' },
+    { href: 'web-design-company-lagos.html', label: 'Web Design (Lagos)' },
+    { href: 'website-designer-victoria-island.html', label: 'Victoria Island' },
     { href: 'web-design-abuja.html', label: 'Abuja' },
     { href: 'web-design-benin-city.html', label: 'Benin City' },
     { href: 'web-design-port-harcourt.html', label: 'Port Harcourt' },
